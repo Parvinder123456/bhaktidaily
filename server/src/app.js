@@ -37,11 +37,21 @@ const app = express();
 app.use(helmet());
 
 // CORS — allow the Next.js dashboard origin in production; wide-open in dev
+const ALLOWED_ORIGINS = [
+  'https://bhaktidaily.online',
+  'https://www.bhaktidaily.online',
+];
+// Also honour the env var in case it points to a preview/staging URL
+if (process.env.DASHBOARD_URL && !ALLOWED_ORIGINS.includes(process.env.DASHBOARD_URL)) {
+  ALLOWED_ORIGINS.push(process.env.DASHBOARD_URL);
+}
+
 app.use(
   cors({
-    origin: process.env.DASHBOARD_URL || '*',
+    origin: process.env.NODE_ENV === 'production' ? ALLOWED_ORIGINS : '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
   })
 );
 
