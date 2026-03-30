@@ -1,0 +1,465 @@
+# DharmaDaily — Execution Plan
+
+> **DharmaDaily** is a Hinduism-focused, AI-powered spiritual companion on WhatsApp that delivers personalised daily Rashi readings, curated Sanskrit scripture, and devotional challenges — all through a single morning message.
+
+---
+
+## Scope & Key Decisions
+
+This plan adapts the broader "DailyDivine" concept with the following constraints:
+
+| Decision | Choice |
+|---|---|
+| Faith scope | **Hinduism only** (Vedas, Upanishads, Bhagavad Gita, Ramayana, Puranas, Stotras) |
+| App name | **DharmaDaily** |
+| Languages (MVP) | **Hindi & English** |
+| WhatsApp provider (MVP) | **Twilio WhatsApp API** (fastest setup; migrate to Meta Cloud API at scale) |
+| AI model | **Anthropic Claude API (claude-sonnet-4-6)** |
+| Backend | **Node.js + Express** |
+| Database | **PostgreSQL via Supabase** |
+| Scheduler | **BullMQ (Redis-backed)** — more reliable than node-cron for per-user timezones |
+| Web dashboard | **Next.js (React)** |
+| Hosting | **Railway** (backend + DB + Redis in one platform) |
+
+> [!IMPORTANT]
+> **User to confirm:**
+> 1. Are you planning to use your own Twilio / Meta WhatsApp account, or do you need guidance on setting one up?
+> 2. Do you have an Anthropic API key, or should we stub AI calls during early development?
+> 3. Preference on Supabase (hosted) vs. self-hosted PostgreSQL on Railway?
+> 4. Should the web dashboard be deployed separately (e.g. Vercel) or alongside the backend on Railway?
+
+---
+
+## System Architecture
+
+```mermaid
+flowchart LR
+    subgraph User
+        WA[WhatsApp User]
+        WEB[Web Browser]
+    end
+
+    subgraph External
+        TWILIO["Twilio WhatsApp API"]
+        CLAUDE["Claude API"]
+    end
+
+    subgraph Backend ["Railway"]
+        API["Express API Server"]
+        BULL["BullMQ Scheduler"]
+        REDIS["Redis"]
+        DB["PostgreSQL (Supabase)"]
+    end
+
+    subgraph Frontend ["Vercel / Railway"]
+        NEXT["Next.js Dashboard"]
+    end
+
+    WA -- sends msg --> TWILIO
+    TWILIO -- webhook --> API
+    API -- sends reply --> TWILIO
+    TWILIO -- delivers --> WA
+
+    API -- prompt --> CLAUDE
+    CLAUDE -- response --> API
+
+    API <--> DB
+    BULL <--> REDIS
+    BULL -- triggers daily job --> API
+
+    WEB --> NEXT
+    NEXT <--> API
+```
+
+---
+
+## Phase 0 — Project Bootstrap (Days 1–2)
+
+### Goals
+Initialise the monorepo, configure linting/formatting, set up environment variables, and establish the dev workflow.
+
+### Directory Structure (Proposed)
+```
+DharmaDaily/
+├── server/                 # Express backend
+│   ├── src/
+│   │   ├── config/         # env, db, redis, twilio config
+│   │   ├── controllers/    # webhook, chat, user controllers
+│   │   ├── services/       # ai, scripture, scheduler, streak services
+│   │   ├── models/         # Sequelize/Prisma models
+│   │   ├── routes/         # Express routes
+│   │   ├── prompts/        # System & template prompts (text files)
+│   │   ├── jobs/           # BullMQ job processors
+│   │   └── utils/          # helpers
+│   ├── prisma/
+│   │   └── schema.prisma
+│   ├── package.json
+│   └── .env.example
+├── dashboard/              # Next.js web dashboard
+│   ├── src/
+│   │   ├── app/
+│   │   ├── components/
+│   │   └── lib/
+│   ├── package.json
+│   └── .env.example
+├── scripts/                # seed scripts, scripture import
+├── data/
+│   └── scriptures/         # curated verse JSON/CSV files
+├── .gitignore
+├── README.md
+└── package.json            # root workspace (npm workspaces)
+```
+
+#### Tasks
+- [ ] Initialise npm workspace monorepo
+- [ ] `server/` — `npm init`, install Express, Prisma, BullMQ, ioredis, twilio, @anthropic-ai/sdk, dotenv, cors, helmet
+- [ ] `dashboard/` — `npx create-next-app@latest ./`
+- [ ] Create `.env.example` files with all required keys
+- [ ] Configure ESLint + Prettier
+- [ ] Set up `.gitignore`
+
+---
+
+## Phase 1 — Database & Scripture Foundation (Days 3–6)
+
+### Goals
+Define the database schema and seed it with curated Hindu scriptures.
+
+### Database Schema (Prisma)
+
+```prisma
+model User {
+  id              String   @id @default(uuid())
+  phone           String   @unique
+  name            String?
+  rashi           String?              // Mesh, Vrishabh, Mithun, etc.
+  language        String   @default("en") // "en" | "hi"
+  deliveryTime    String   @default("07:00")  // HH:mm IST
+  timezone        String   @default("Asia/Kolkata")
+  onboardingStep  Int      @default(0)
+  isOnboarded     Boolean  @default(false)
+  isPremium       Boolean  @default(false)
+  streakCount     Int      @default(0)
+  lastInteraction DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  conversations   Conversation[]
+  dailyMessages   DailyMessage[]
+}
+
+model Scripture {
+  id            String   @id @default(uuid())
+  source        String               // "Bhagavad Gita", "Ramayana", etc.
+  reference     String               // "Chapter 2, Verse 47"
+  textSanskrit  String?              // Original Sanskrit
+  textEnglish   String               // English translation
+  textHindi     String?              // Hindi translation
+  tags          String[]             // ["strength", "karma", "devotion", ...]
+  category      String?              // "mantra", "shloka", "stotra", "sutra"
+  createdAt     DateTime @default(now())
+}
+
+model DailyMessage {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  date        DateTime @db.Date
+  horoscope   String
+  verseId     String?
+  verseText   String
+  challenge   String
+  sentAt      DateTime?
+  opened      Boolean  @default(false)
+  replied     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Conversation {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  role      String               // "user" | "assistant"
+  content   String
+  createdAt DateTime @default(now())
+}
+```
+
+### Scripture Curation
+Curate **60+ verses** from Hindu scriptures, tagged by theme:
+
+| Source | Target Count | Example Tags |
+|---|---|---|
+| Bhagavad Gita | 25 | karma, dharma, detachment, strength, devotion |
+| Upanishads | 10 | self-knowledge, truth, consciousness |
+| Ramayana | 10 | duty, courage, loyalty, family |
+| Hanuman Chalisa | 5 | devotion, protection, strength |
+| Vedas / Mantras | 5 | peace, prosperity, gratitude |
+| Puranas / Stotras | 5 | faith, surrender, divine grace |
+
+Format: JSON files in `data/scriptures/` → imported via seed script.
+
+#### Tasks
+- [ ] Write `prisma/schema.prisma`
+- [ ] Run `prisma migrate dev` to create tables
+- [ ] Create `data/scriptures/bhagavad_gita.json`, `upanishads.json`, etc.
+- [ ] Write `scripts/seed-scriptures.js` to import verses into DB
+- [ ] Verify: query DB to confirm verse count and tag distribution
+
+---
+
+## Phase 2 — WhatsApp Integration & Onboarding (Days 7–12)
+
+### Goals
+Connect Twilio WhatsApp webhook, build the conversational onboarding flow, and store user profiles.
+
+### Onboarding Conversation Flow
+
+```
+User: "Hi" / "Namaste" / "Start"
+Bot:  🙏 Namaste! Welcome to DharmaDaily — your personal spiritual companion.
+      What should I call you?
+
+User: "Parvi"
+Bot:  Lovely to meet you, Parvi! 🙏
+      What is your Rashi (zodiac sign)?
+      1️⃣ Mesh (Aries)
+      2️⃣ Vrishabh (Taurus)
+      ... (all 12)
+      
+      Reply with the number.
+
+User: "3"
+Bot:  Mithun Rashi — noted! ♊
+      Which language do you prefer?
+      1️⃣ English
+      2️⃣ हिन्दी
+
+User: "1"
+Bot:  Last question — when should I send your daily message?
+      1️⃣ 6:00 AM
+      2️⃣ 7:00 AM
+      3️⃣ 8:00 AM
+      4️⃣ Custom time (reply HH:MM)
+
+User: "2"
+Bot:  ✅ You're all set, Parvi!
+      Starting tomorrow at 7:00 AM, you'll receive:
+      ☀️ Your personalised Rashi reading
+      📖 A sacred verse from Hindu scripture
+      🔥 A daily spiritual challenge
+      
+      Type anything anytime to chat with me about dharma, 
+      prayers, or life guidance. 🙏
+```
+
+### WhatsApp Template Message (for daily proactive sends)
+```
+🙏 Namaste {{1}}! — Day {{2}} 🔥
+
+☀️ *{{3}} Rashi — Today's Reading*
+{{4}}
+
+📖 *Today's Verse*
+_{{5}}_
+— {{6}}
+
+🔥 *Daily Challenge*
+{{7}}
+
+Reply to share your thoughts or ask me anything! 🙏
+```
+> Variables: `{{1}}` name, `{{2}}` streak, `{{3}}` rashi, `{{4}}` horoscope, `{{5}}` verse, `{{6}}` source, `{{7}}` challenge
+
+#### Tasks
+- [ ] Configure Twilio WhatsApp sandbox (or production number)
+- [ ] Build `POST /webhook/whatsapp` — receives incoming messages
+- [ ] Build `controllers/onboardingController.js` — state-machine for the onboarding flow
+- [ ] Build `services/userService.js` — create/update user profiles in DB
+- [ ] Submit WhatsApp message template for approval (Twilio console)
+- [ ] Test: complete onboarding via WhatsApp, verify user saved in DB
+
+---
+
+## Phase 3 — AI Engine & Daily Message Generation (Days 13–20)
+
+### Goals
+Build the Claude-powered AI engine that generates daily messages and handles conversational chat.
+
+### AI Prompt Strategy
+
+**System Prompt (personality):**
+```
+You are DharmaDaily, a warm, wise, and deeply knowledgeable Hindu spiritual 
+companion. You speak with the gentle authority of a family pandit combined 
+with the relatability of a close friend.
+
+Rules:
+- Always respond from the Hindu tradition (Sanatan Dharma)
+- Reference specific scriptures: Bhagavad Gita, Upanishads, Ramayana, 
+  Vedas, Puranas, Hanuman Chalisa, and other sacred texts
+- Never fabricate verse references — only use verses provided in context
+- Be compassionate, non-judgmental, and inclusive of all Hindu sampradayas
+- Use simple language; sprinkle in Sanskrit terms with translations
+- Keep responses concise (under 300 words for daily messages, 
+  under 200 words for chat)
+- For astrology/rashi readings, use a spiritual tone — not tabloid horoscope
+```
+
+**Daily Message Generation Flow:**
+1. Scheduler triggers job for user
+2. Select a random theme tag (e.g., "karma", "devotion", "strength")
+3. Query `Scripture` table for a verse matching the tag
+4. Build prompt with: user's rashi, today's date, selected verse, theme
+5. Claude generates: horoscope paragraph + challenge prompt (verse is from DB, not AI-generated)
+6. Format into WhatsApp template and send
+
+**Chat Response Flow:**
+1. Load user profile + last 5 conversation messages from DB
+2. Build prompt with: user profile, conversation history, current question
+3. Claude generates response
+4. Save both user message and AI response to `Conversation` table
+5. Send response via WhatsApp
+
+#### Tasks
+- [ ] Build `services/aiService.js` — Claude API wrapper with retry logic
+- [ ] Create prompt templates in `src/prompts/` (system.txt, daily.txt, chat.txt)
+- [ ] Build `services/scriptureService.js` — query & select verses by tag
+- [ ] Build `services/dailyMessageService.js` — orchestrates daily message generation
+- [ ] Build `controllers/chatController.js` — handles free-form conversation
+- [ ] Build `services/conversationService.js` — stores/retrieves chat history
+- [ ] Test: generate 10 sample daily messages, review quality
+- [ ] Test: simulate 5 chat conversations, verify context retention
+
+---
+
+## Phase 4 — Scheduler & Streak System (Days 21–26)
+
+### Goals
+Implement the BullMQ-based scheduler for per-user daily sends and build streak tracking.
+
+### Scheduler Design
+- **Daily scan job** runs every hour (or every 30 min at scale)
+- Queries users whose `deliveryTime` matches the current hour (in their timezone)
+- Enqueues a `sendDailyMessage` job per user into BullMQ
+- Job processor generates content (Phase 3 service), sends via Twilio, logs to `DailyMessage`
+- Failed jobs retry up to 3 times with exponential backoff
+
+### Streak Logic
+| Event | Action |
+|---|---|
+| Daily message sent & user replies | `streakCount += 1`, update `lastInteraction` |
+| User interacts with bot (any message) | Update `lastInteraction` |
+| 2 consecutive days with no interaction | Reset `streakCount = 0` |
+| Streak milestone (7, 21, 40, 108 days) | Send congratulatory message with badge emoji |
+
+#### Tasks
+- [ ] Set up Redis on Railway
+- [ ] Build `jobs/dailyScanJob.js` — periodic scan for users to message
+- [ ] Build `jobs/sendDailyMessageJob.js` — generates + sends one daily message
+- [ ] Build `services/streakService.js` — streak increment/reset logic
+- [ ] Build `jobs/streakCheckJob.js` — nightly scan to reset stale streaks
+- [ ] Test: register 5 test users with different delivery times, verify messages arrive on schedule
+- [ ] Test: simulate streak scenarios (active, missed 1 day, missed 2 days)
+
+---
+
+## Phase 5 — Web Dashboard (Days 27–34)
+
+### Goals
+Build a modern, visually stunning Next.js dashboard for user registration, profile management, and streak/history viewing.
+
+### Pages
+
+| Route | Purpose |
+|---|---|
+| `/` | Landing page — product pitch, sign-up CTA |
+| `/signup` | Alternative registration (phone verification via OTP) |
+| `/dashboard` | Profile overview, current streak, today's message |
+| `/history` | Past daily messages in a feed/timeline view |
+| `/settings` | Edit rashi, language, delivery time |
+
+### Design Direction
+- **Dark theme** with saffron/gold accent (#FF9933, #FFD700)
+- Glassmorphism cards for daily messages
+- Sanskrit-inspired typography (Google Fonts: Yatra One for headings, Inter for body)
+- Smooth micro-animations (streak fire animation, verse fade-in)
+- Fully responsive (mobile-first)
+
+### API Endpoints (Backend)
+
+| Method | Route | Purpose |
+|---|---|---|
+| POST | `/api/auth/send-otp` | Send OTP to phone |
+| POST | `/api/auth/verify-otp` | Verify OTP, return JWT |
+| GET | `/api/user/profile` | Get user profile |
+| PUT | `/api/user/profile` | Update preferences |
+| GET | `/api/user/streak` | Current streak + history |
+| GET | `/api/messages` | Paginated daily message history |
+| GET | `/api/messages/:id` | Single message detail |
+
+#### Tasks
+- [ ] Build API auth routes (OTP-based phone auth with JWT)
+- [ ] Build API data routes (profile, streak, messages)
+- [ ] Design and build landing page (`/`)
+- [ ] Build sign-up page with OTP flow
+- [ ] Build dashboard page (streak display, today's message)
+- [ ] Build history page (timeline of past messages)
+- [ ] Build settings page
+- [ ] Test: full sign-up → dashboard → history flow in browser
+
+---
+
+## Phase 6 — Polish, Beta & Launch (Days 35–42)
+
+### Goals
+End-to-end testing, prompt tuning, performance optimization, and beta launch with real users.
+
+#### Tasks
+- [ ] End-to-end test: onboarding → daily message → chat → streak → dashboard
+- [ ] Load test: simulate 100 concurrent daily message sends
+- [ ] Tune AI prompts based on sample outputs (tone, length, relevance)
+- [ ] Add rate limiting to API endpoints
+- [ ] Add error monitoring (Sentry or equivalent)
+- [ ] Create README with setup instructions
+- [ ] Beta launch with 20–30 users
+- [ ] Collect feedback, iterate on prompts and UX
+
+---
+
+## Verification Plan
+
+### Automated Tests
+- **Unit tests** (Jest): `scriptureService`, `streakService`, `aiService` (mocked Claude), onboarding state machine
+- **Integration tests**: webhook endpoint receives Twilio payload → user created → response sent
+- **Commands:**
+  ```bash
+  cd server && npm test           # Jest unit + integration
+  cd dashboard && npm test        # Next.js component tests
+  ```
+
+### Manual / Browser Verification
+- **WhatsApp onboarding**: Send "Hi" to the Twilio sandbox number, complete all onboarding steps, verify user appears in Supabase DB
+- **Daily message delivery**: Set a test user's delivery time to 2 minutes from now, wait, confirm message arrives on WhatsApp
+- **Chat**: Reply to a daily message with a question, verify AI responds contextually
+- **Streak**: Interact for 3 days, verify streak = 3; stop for 2 days, verify reset
+- **Web dashboard**: Open browser → sign up with phone → view dashboard → check streak and message history
+- **Prompt quality**: Generate 10 daily messages across all 12 rashis, review for tone, accuracy, and variety
+
+> [!NOTE]
+> The user should manually verify WhatsApp message delivery and prompt quality during beta. Automated tests cover logic; human review covers spiritual tone and cultural sensitivity.
+
+---
+
+## Post-MVP Roadmap (V2)
+
+| Feature | Description | Priority |
+|---|---|---|
+| Monthly Challenges | 40-day Hanuman Chalisa, Navratri 9-day, Shiva month | High |
+| Community Responses | See anonymized responses to today's challenge | High |
+| Spiritual Journal | Reply with gratitude; bot reflects them back weekly | Medium |
+| Audio Mantras | Voice messages of mantras/shlokas with daily text | Medium |
+| Multi-language | Hindi, Tamil, Telugu, Gujarati, Marathi | Medium |
+| Family/Group Plans | Shared family streaks and challenges | Low |
+| Festival Calendar | Automated special messages on Hindu festivals | High |
+| Panchang Integration | Tithi, nakshatra, muhurat in daily messages | Medium |

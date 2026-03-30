@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Bhagavad Gita mein kitne adhyay hain?",
+    "options": ["A) 16", "B) 18", "C) 21", "D) 24"],
+    "answerIndex": 1,
+    "explanation": "Bhagavad Gita mein 18 adhyay aur 700 shlokas hain. 18 ka ank Mahabharata mein bahut shubh maana jaata hai."
+  },
+  {
+    "question": "Hanuman Chalisa mein kitne chaupaiyan hain?",
+    "options": ["A) 36", "B) 40", "C) 42", "D) 48"],
+    "answerIndex": 1,
+    "explanation": "Hanuman Chalisa mein 40 chaupaiyan hain — 'Chalisa' shabd ka arth hi 40 hota hai. Iske alawa 2 dohe bhi hain."
+  },
+  {
+    "question": "Mahabharat ka yuddh kitne din chala tha?",
+    "options": ["A) 14 din", "B) 18 din", "C) 21 din", "D) 27 din"],
+    "answerIndex": 1,
+    "explanation": "Mahabharat ka yuddh 18 din tak chala. Har din ek parv ke roop mein jaana jaata hai."
+  },
+  {
+    "question": "Bhagwan Shri Ram ke kitne bhai the?",
+    "options": ["A) 2", "B) 3", "C) 4", "D) 5"],
+    "answerIndex": 1,
+    "explanation": "Shri Ram ke 3 bhai the — Bharat, Lakshman aur Shatrughna. Ye chaaron Dasharatha aur unki teen raniyon ke putra the."
+  },
+  {
+    "question": "108 ki sankhya Hinduism mein kyun pavitra hai?",
+    "options": ["A) 108 Upanishad hain", "B) 108 devta hain", "C) 108 Veda hain", "D) 108 lok hain"],
+    "answerIndex": 0,
+    "explanation": "Sanatan Dharm mein 108 Upanishad hain. 108 mala ke moti bhi isi karan se hote hain. 1=Ishwar, 0=Shunya/Srishti, 8=Anant."
+  },
+  {
+    "question": "Ramayan ke rachayita kaun hain?",
+    "options": ["A) Veda Vyasa", "B) Maharishi Valmiki", "C) Tulsidas", "D) Kalidas"],
+    "answerIndex": 1,
+    "explanation": "Mool Ramayan (Sanskrit) Maharishi Valmiki ne likhi thi. Tulsidas ji ne baad mein Ramcharitmanas Awadhi bhasha mein likhi."
+  },
+  {
+    "question": "Bhagwan Vishnu ke kitne avataar maane jaate hain?",
+    "options": ["A) 8", "B) 10", "C) 12", "D) 24"],
+    "answerIndex": 1,
+    "explanation": "Bhagwan Vishnu ke 10 mukhya avataar hain jo Dashavatar ke naam se jaane jaate hain — Matsya se lekar Kalki tak."
+  },
+  {
+    "question": "Gayatri Mantra kis Veda se liya gaya hai?",
+    "options": ["A) Yajurveda", "B) Samaveda", "C) Rigveda", "D) Atharvaveda"],
+    "answerIndex": 2,
+    "explanation": "Gayatri Mantra Rigveda ke Mandal 3, Sukta 62, Mantra 10 mein hai. Yeh Maharishi Vishwamitra dwara prakashit kiya gaya tha."
+  },
+  {
+    "question": "Navratri mein kitne din Devi ki puja hoti hai?",
+    "options": ["A) 7", "B) 9", "C) 10", "D) 12"],
+    "answerIndex": 1,
+    "explanation": "Navratri mein 9 din 9 alag roopon mein Maa Durga ki puja hoti hai. 'Nav' ka arth hai 9 aur 'Ratri' ka arth hai raat."
+  },
+  {
+    "question": "Mahabharata ke lekhak kaun hain?",
+    "options": ["A) Maharishi Valmiki", "B) Veda Vyasa", "C) Kalidas", "D) Chanakya"],
+    "answerIndex": 1,
+    "explanation": "Mahabharata ke rachayita Maharishi Veda Vyasa hain. Unhone Bhagwan Ganesha se ise likhwaya tha."
+  },
+  {
+    "question": "Char Dham yatra mein kaun sa dham NAHI aata?",
+    "options": ["A) Badrinath", "B) Rameshwaram", "C) Varanasi", "D) Dwarka"],
+    "answerIndex": 2,
+    "explanation": "Char Dham hain — Badrinath (Uttar), Puri (Purv), Rameshwaram (Dakshin), Dwarka (Paschim). Varanasi Char Dham mein nahi aata."
+  },
+  {
+    "question": "Shri Krishna ne Bhagavad Gita kahan sunai thi?",
+    "options": ["A) Vrindavan mein", "B) Dwarka mein", "C) Kurukshetra mein", "D) Mathura mein"],
+    "answerIndex": 2,
+    "explanation": "Bhagavad Gita Kurukshetra ke yuddh kshetra mein Arjun ko sunai gayi thi, jab Arjun yuddh karne se hichkicha rahe the."
+  },
+  {
+    "question": "Hinduism mein kitne Veda hain?",
+    "options": ["A) 2", "B) 3", "C) 4", "D) 6"],
+    "answerIndex": 2,
+    "explanation": "Char Veda hain — Rigveda, Yajurveda, Samaveda, aur Atharvaveda. Ye Sanatan Dharm ke sabse praacheen granth hain."
+  },
+  {
+    "question": "Diwali kyon manayi jaati hai?",
+    "options": ["A) Krishna janm", "B) Ram ka vanvas", "C) Ram ki Ayodhya wapsi", "D) Shiv vivah"],
+    "answerIndex": 2,
+    "explanation": "Diwali Bhagwan Ram ki 14 saal ke vanvas ke baad Ayodhya wapsi ki khushi mein manayi jaati hai. Logo ne deepak jalaye the."
+  },
+  {
+    "question": "Shri Ganesh ka vahaan kya hai?",
+    "options": ["A) Sher", "B) Hathi", "C) Mooshak", "D) Mor"],
+    "answerIndex": 2,
+    "explanation": "Bhagwan Ganesh ka vahaan Mooshak (chuha) hai. Yeh darshata hai ki Bhagwan sabse choti cheez ko bhi mahatva dete hain."
+  },
+  {
+    "question": "Maa Durga ka vahaan kya hai?",
+    "options": ["A) Sher/Singh", "B) Hathi", "C) Gadha", "D) Hans"],
+    "answerIndex": 0,
+    "explanation": "Maa Durga ka vahaan Sher ya Singh hai, jo shakti aur saahas ka pratik hai."
+  },
+  {
+    "question": "Tulsidas ji ne Ramcharitmanas kis bhasha mein likhi?",
+    "options": ["A) Sanskrit", "B) Hindi", "C) Awadhi", "D) Braj"],
+    "answerIndex": 2,
+    "explanation": "Ramcharitmanas Awadhi bhasha mein likhi gayi hai. Yeh Varanasi mein likhi gayi thi aur aam janta ke liye Ram katha ko sulabh banaya."
+  },
+  {
+    "question": "Om ka ucharan kahan se shuru hota hai?",
+    "options": ["A) Gale se", "B) Naabhi se", "C) Munh se", "D) Naak se"],
+    "answerIndex": 1,
+    "explanation": "Om ka ucharan naabhi se shuru hokar gale aur hothon tak jaata hai — A (naabhi), U (gala), M (honth). Yeh poori srishti ki dhwani hai."
+  },
+  {
+    "question": "Samudra Manthan mein kitni divya vastu nikli thi?",
+    "options": ["A) 10", "B) 12", "C) 14", "D) 16"],
+    "answerIndex": 2,
+    "explanation": "Samudra Manthan se 14 ratna nikle the, jinmein Amrit, Lakshmi, Kamadhenu, Kalpavriksha, aur Vish bhi shamil tha."
+  },
+  {
+    "question": "Bhagwan Shiva ka trishul kiska pratik hai?",
+    "options": ["A) Teen lok", "B) Teen gun (Satva, Rajas, Tamas)", "C) Teen kaal", "D) Ye sabhi"],
+    "answerIndex": 3,
+    "explanation": "Shiva ka trishul teen gunn, teen kaal (bhoot, vartman, bhavishya) aur teen lok (swarg, prithvi, paatal) sabka pratik hai."
+  },
+  {
+    "question": "Chhath Puja mein kis devta ki puja hoti hai?",
+    "options": ["A) Chandra Dev", "B) Surya Dev", "C) Varun Dev", "D) Agni Dev"],
+    "answerIndex": 1,
+    "explanation": "Chhath Puja mein Surya Dev aur Chhathi Maiya ki puja hoti hai. Yeh Bihar aur UP ka pramukh tyohar hai."
+  },
+  {
+    "question": "Bhagwan Krishna kis vansh mein janme the?",
+    "options": ["A) Surya Vansh", "B) Chandra Vansh", "C) Yadu Vansh", "D) Raghu Vansh"],
+    "answerIndex": 2,
+    "explanation": "Bhagwan Krishna Yadu Vansh (Chandravanshi) mein janme the. Isliye unhe Yadav bhi kaha jaata hai."
+  },
+  {
+    "question": "Konsa ank Hinduism mein sabse pavitra maana jaata hai?",
+    "options": ["A) 7", "B) 9", "C) 108", "D) 1008"],
+    "answerIndex": 2,
+    "explanation": "108 sabse pavitra ank hai — 108 Upanishad, 108 mala ke moti, 108 divya kshetra. Yeh brahmaand ki poornata darshata hai."
+  },
+  {
+    "question": "Ashta Lakshmi mein kitni Lakshmi hain?",
+    "options": ["A) 4", "B) 6", "C) 8", "D) 10"],
+    "answerIndex": 2,
+    "explanation": "Ashta Lakshmi 8 hain — Adi, Dhana, Dhanya, Gaja, Santana, Veera, Vijaya aur Vidya Lakshmi."
+  },
+  {
+    "question": "Bhagwan Hanuman ko 'Sankat Mochan' kyun kaha jaata hai?",
+    "options": ["A) Yuddh jeete", "B) Lanka jalayi", "C) Sankat door karte hain", "D) Parvat uthaya"],
+    "answerIndex": 2,
+    "explanation": "Hanuman ji ko Sankat Mochan isliye kaha jaata hai kyunki ve bhakton ke har sankat (mushkil) ko door karte hain."
+  },
+  {
+    "question": "Dashavatar mein pehla avataar kaun sa hai?",
+    "options": ["A) Kurma", "B) Matsya", "C) Varaha", "D) Narasimha"],
+    "answerIndex": 1,
+    "explanation": "Pehla avataar Matsya (machli) hai, jisne pralay ke samay Manu aur Vedon ki raksha ki thi."
+  },
+  {
+    "question": "Bhagwan Ram ne vanvas mein kitne saal bitaye?",
+    "options": ["A) 10 saal", "B) 12 saal", "C) 14 saal", "D) 16 saal"],
+    "answerIndex": 2,
+    "explanation": "Bhagwan Ram ne 14 saal ka vanvas Sita aur Lakshman ke saath bitaya. Yeh Kaikeyi ke vachan ke karan hua tha."
+  },
+  {
+    "question": "Kailash Parvat kis bhagwan ka nivas hai?",
+    "options": ["A) Brahma", "B) Vishnu", "C) Shiva", "D) Indra"],
+    "answerIndex": 2,
+    "explanation": "Kailash Parvat Bhagwan Shiva aur Maa Parvati ka divya nivas hai. Yeh Tibet mein sthit hai aur aaj bhi poornta se avirodhit hai."
+  },
+  {
+    "question": "Ekadashi vrat kiske liye kiya jaata hai?",
+    "options": ["A) Shiva", "B) Vishnu", "C) Brahma", "D) Surya"],
+    "answerIndex": 1,
+    "explanation": "Ekadashi vrat Bhagwan Vishnu ke liye rakha jaata hai. Har maah mein do Ekadashi aati hain — Shukla aur Krishna paksha mein."
+  },
+  {
+    "question": "Sanatan Dharm mein sabse chhota Purana kaun sa hai?",
+    "options": ["A) Vishnu Purana", "B) Markandeya Purana", "C) Vayu Purana", "D) Narada Purana"],
+    "answerIndex": 1,
+    "explanation": "Markandeya Purana sabse chhota Purana hai jismein lagbhag 9000 shlok hain. Ismein Devi Mahatmyam (Durga Saptashati) bhi shamil hai."
+  }
+]

@@ -1,0 +1,298 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id             String    @id @default(uuid())
+  phone          String    @unique
+  name           String?
+  rashi          String?
+  language       String    @default("en")
+  deliveryTime   String    @default("07:00")
+  timezone       String    @default("Asia/Kolkata")
+  onboardingStep Int       @default(0)
+  isOnboarded    Boolean   @default(false)
+  isPremium      Boolean   @default(false)
+  streakCount    Int       @default(0)
+  lastInteraction DateTime?
+  passwordHash   String?
+  otpCode        String?
+  otpExpiry      DateTime?
+
+  // Phase 2: Interactive reply context
+  pendingInteraction String? // JSON: { type: "dream_prompt"|"name_prompt"|"trivia_answer"|"open_qa", expiresAt: ISO string, data: {} }
+
+  // Phase 3: Trivia
+  triviaScore    Int       @default(0)
+
+  // Phase 5: Viral mechanics
+  referralCode   String?   @unique
+  referredBy     String?
+
+  // Self-improvement layer
+  engagementProfile  Json?     // { replyRate, avgReplyMinutes, peakHour, tier, totalMessages30d }
+  contentCycleWeek   Int       @default(0)
+  lastThemeTag       String?
+
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  conversations  Conversation[]
+  dailyMessages  DailyMessage[]
+  triviaAnswers  TriviaAnswer[]
+  bonusMessages  BonusMessage[]
+  contentLogs    ContentLog[]
+  weeklyThemes   WeeklyTheme[]
+  promptVariants UserPromptVariant[]
+}
+
+model Scripture {
+  id              String   @id @default(uuid())
+  source          String
+  reference       String
+  textSanskrit    String?
+  textEnglish     String
+  textHindi       String?
+  transliteration String?
+  tags            String[]
+  category        String?
+  createdAt       DateTime @default(now())
+
+  @@unique([source, reference])
+}
+
+model DailyMessage {
+  id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  date      DateTime  @db.Date
+  horoscope String
+  verseId   String?
+  verseText String
+  challenge String
+  sentAt    DateTime?
+  opened    Boolean   @default(false)
+  replied   Boolean   @default(false)
+  createdAt DateTime  @default(now())
+}
+
+model Conversation {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  role      String
+  content   String
+  createdAt DateTime @default(now())
+}
+
+// Phase 3: Trivia system
+model TriviaQuestion {
+  id          String    @id @default(uuid())
+  question    String
+  options     String[]
+  answerIndex Int
+  explanation String
+  usedOnDate  DateTime? @db.Date
+  createdAt   DateTime  @default(now())
+  answers     TriviaAnswer[]
+}
+
+model TriviaAnswer {
+  id          String         @id @default(uuid())
+  userId      String
+  user        User           @relation(fields: [userId], references: [id])
+  questionId  String
+  question    TriviaQuestion @relation(fields: [questionId], references: [id])
+  selected    Int
+  isCorrect   Boolean
+  answeredAt  DateTime       @default(now())
+}
+
+// Phase 4: Bonus messages
+model BonusMessage {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  type      String
+  date      DateTime @db.Date
+  sentAt    DateTime @default(now())
+
+  @@unique([userId, date, type])
+}
+
+// Phase 4+: Media configuration for bonus messages
+model MediaConfig {
+  id        String   @id @default(cuid())
+  key       String   @unique  // e.g. "tuesday_audio", "thursday_image", "daily_image"
+  url       String
+  type      String   // "audio" | "image"
+  label     String   // Human-readable label for dashboard
+  updatedAt DateTime @updatedAt
+}
+
+// Phase 5: Festival campaigns
+model FestivalCampaign {
+  id        String   @id @default(uuid())
+  name      String
+  startDate DateTime @db.Date
+  endDate   DateTime @db.Date
+  isActive  Boolean  @default(true)
+  days      FestivalDay[]
+}
+
+model FestivalDay {
+  id          String           @id @default(uuid())
+  campaignId  String
+  campaign    FestivalCampaign @relation(fields: [campaignId], references: [id])
+  dayNumber   Int
+  title       String
+  content     Json
+  createdAt   DateTime         @default(now())
+}
+
+// Self-improvement layer — Sprint 1
+
+model ContentLog {
+  id          String    @id @default(uuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  contentType String    // verse, trivia, fact, raashifal, bhagwan_sandesh, bonus, streak_recovery
+  contentId   String?   // FK to specific content table (nullable for generated content)
+  contentTag  String?   // theme tag for preference tracking
+  date        DateTime  @db.Date
+  gotReply    Boolean   @default(false)
+  replyAt     DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@index([userId, contentType, date])
+  @@index([contentType, gotReply])
+  @@index([userId, date])
+}
+
+model ContentPool {
+  id           String   @id @default(uuid())
+  type         String   // fact, hanuman_chaupai, trivia_generated, verse_commentary
+  content      String   // main content text or JSON blob
+  tags         String[]
+  source       String?  // scripture reference or "AI generated"
+  generatedBy  String?  // model name that generated this
+  qualityScore Float    @default(0)
+  usedCount    Int      @default(0)
+  isActive     Boolean  @default(true)
+  verified     Boolean  @default(true) // false = needs admin approval before going live
+  rejectedAt   DateTime?
+  createdAt    DateTime @default(now())
+
+  @@index([type, isActive])
+  @@index([type, isActive, verified])
+}
+
+// Self-improvement layer — Sprint 3
+
+model HinduCalendarEvent {
+  id        String   @id @default(uuid())
+  date      DateTime @db.Date
+  eventType String   // ekadashi, amavasya, purnima, navratri, day_deity, ritu, major_festival
+  name      String
+  metadata  Json?    // { deity, theme, description, etc. }
+  createdAt DateTime @default(now())
+
+  @@unique([date, eventType, name])
+  @@index([date])
+}
+
+// Self-improvement layer — Sprint 4
+
+model PromptVariant {
+  id              String    @id @default(uuid())
+  featureKey      String    // bhagwan_sandesh, raashifal, daily_message
+  style           String    // father, friend, guru, etc.
+  promptText      String    // full prompt template
+  isActive        Boolean   @default(true)
+  verified        Boolean   @default(true) // false = needs admin approval
+  lastReplyRate   Float?
+  lastEvaluatedAt DateTime?
+  parentVariantId String?   // if auto-optimized from another variant
+  generatedBy     String?   // model name or "manual"
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  userAssignments UserPromptVariant[]
+
+  @@index([featureKey, isActive])
+}
+
+model UserPromptVariant {
+  id         String        @id @default(uuid())
+  userId     String
+  user       User          @relation(fields: [userId], references: [id])
+  variantId  String
+  variant    PromptVariant @relation(fields: [variantId], references: [id])
+  featureKey String
+  assignedAt DateTime      @default(now())
+
+  @@unique([userId, featureKey])
+  @@index([variantId])
+}
+
+model WeeklyTheme {
+  id             String   @id @default(uuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  weekNumber     Int      // absolute week number
+  cycleWeek      Int      // 1-12 within current cycle
+  cycle          Int      // which 12-week cycle
+  themeSanskrit  String
+  themeEnglish   String
+  teaching       String
+  startsAt       DateTime
+  createdAt      DateTime @default(now())
+
+  @@index([userId, weekNumber])
+}
+
+// Self-improvement layer — Sprint 5
+
+model InsightReport {
+  id            String   @id @default(uuid())
+  period        String   // "2026-03-21 to 2026-03-28"
+  rawData       Json     // engagement data snapshot
+  observations  Json     // string[]
+  promptChanges Json     // [{ target, currentIssue, suggestedChange, expectedImpact }]
+  featureIdea   Json     // { name, description, rationale, effort }
+  alerts        Json     // string[]
+  model         String   // which model generated this
+  createdAt     DateTime @default(now())
+}
+
+model PromptErrorLog {
+  id            String   @id @default(uuid())
+  promptKey     String
+  errorMessage  String
+  promptSnippet String?
+  createdAt     DateTime @default(now())
+
+  @@index([promptKey, createdAt])
+}
+
+model JobRunLog {
+  id         String   @id @default(uuid())
+  jobName    String
+  queue      String
+  startedAt  DateTime
+  finishedAt DateTime?
+  duration   Int?      // milliseconds
+  status     String    // completed, failed, stalled
+  result     Json?
+  error      String?
+  createdAt  DateTime  @default(now())
+
+  @@index([jobName, startedAt])
+  @@index([status, startedAt])
+}

@@ -1,0 +1,2522 @@
+{
+  "2026-03-27": {
+    "tithi": "Chaitra Shukla Ashtami",
+    "nakshatra": "Ardra",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-03-28": {
+    "tithi": "Chaitra Shukla Navami",
+    "nakshatra": "Punarvasu",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-03-29": {
+    "tithi": "Chaitra Shukla Dashami",
+    "nakshatra": "Pushya",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-03-30": {
+    "tithi": "Chaitra Shukla Ekadashi",
+    "nakshatra": "Ashlesha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-03-31": {
+    "tithi": "Chaitra Shukla Dwadashi",
+    "nakshatra": "Magha",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-01": {
+    "tithi": "Chaitra Shukla Trayodashi",
+    "nakshatra": "Purva Phalguni",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-02": {
+    "tithi": "Chaitra Shukla Chaturdashi",
+    "nakshatra": "Uttara Phalguni",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-03": {
+    "tithi": "Chaitra Shukla Purnima",
+    "nakshatra": "Hasta",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-04": {
+    "tithi": "Chaitra Krishna Pratipada",
+    "nakshatra": "Chitra",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-05": {
+    "tithi": "Chaitra Krishna Dwitiya",
+    "nakshatra": "Swati",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-06": {
+    "tithi": "Chaitra Krishna Tritiya",
+    "nakshatra": "Vishakha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-07": {
+    "tithi": "Chaitra Krishna Chaturthi",
+    "nakshatra": "Anuradha",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-08": {
+    "tithi": "Chaitra Krishna Panchami",
+    "nakshatra": "Jyeshtha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-09": {
+    "tithi": "Chaitra Krishna Shashthi",
+    "nakshatra": "Mula",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-10": {
+    "tithi": "Chaitra Krishna Saptami",
+    "nakshatra": "Purva Ashadha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-11": {
+    "tithi": "Chaitra Krishna Ashtami",
+    "nakshatra": "Uttara Ashadha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-12": {
+    "tithi": "Chaitra Krishna Navami",
+    "nakshatra": "Shravana",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-13": {
+    "tithi": "Chaitra Krishna Dashami",
+    "nakshatra": "Dhanishta",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-14": {
+    "tithi": "Chaitra Krishna Ekadashi",
+    "nakshatra": "Shatabhisha",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-15": {
+    "tithi": "Chaitra Krishna Dwadashi",
+    "nakshatra": "Purva Bhadrapada",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-16": {
+    "tithi": "Chaitra Krishna Trayodashi",
+    "nakshatra": "Uttara Bhadrapada",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-17": {
+    "tithi": "Chaitra Krishna Chaturdashi",
+    "nakshatra": "Revati",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-18": {
+    "tithi": "Chaitra Krishna Amavasya",
+    "nakshatra": "Ashwini",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-04-19": {
+    "tithi": "Chaitra Shukla Pratipada",
+    "nakshatra": "Bharani",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-20": {
+    "tithi": "Chaitra Shukla Dwitiya",
+    "nakshatra": "Krittika",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-21": {
+    "tithi": "Chaitra Shukla Tritiya",
+    "nakshatra": "Rohini",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-22": {
+    "tithi": "Chaitra Shukla Chaturthi",
+    "nakshatra": "Mrigashira",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-23": {
+    "tithi": "Chaitra Shukla Panchami",
+    "nakshatra": "Ardra",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-24": {
+    "tithi": "Chaitra Shukla Shashthi",
+    "nakshatra": "Pushya",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-25": {
+    "tithi": "Chaitra Shukla Saptami",
+    "nakshatra": "Ashlesha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-26": {
+    "tithi": "Vaishakh Shukla Navami",
+    "nakshatra": "Magha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-27": {
+    "tithi": "Vaishakh Shukla Dashami",
+    "nakshatra": "Purva Phalguni",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-28": {
+    "tithi": "Vaishakh Shukla Ekadashi",
+    "nakshatra": "Uttara Phalguni",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-29": {
+    "tithi": "Vaishakh Shukla Dwadashi",
+    "nakshatra": "Hasta",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-04-30": {
+    "tithi": "Vaishakh Shukla Trayodashi",
+    "nakshatra": "Chitra",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-01": {
+    "tithi": "Vaishakh Shukla Chaturdashi",
+    "nakshatra": "Swati",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-02": {
+    "tithi": "Vaishakh Shukla Purnima",
+    "nakshatra": "Vishakha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-03": {
+    "tithi": "Vaishakh Krishna Pratipada",
+    "nakshatra": "Anuradha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-04": {
+    "tithi": "Vaishakh Krishna Dwitiya",
+    "nakshatra": "Jyeshtha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-05": {
+    "tithi": "Vaishakh Krishna Tritiya",
+    "nakshatra": "Mula",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-06": {
+    "tithi": "Vaishakh Krishna Chaturthi",
+    "nakshatra": "Purva Ashadha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-07": {
+    "tithi": "Vaishakh Krishna Panchami",
+    "nakshatra": "Uttara Ashadha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-08": {
+    "tithi": "Vaishakh Krishna Shashthi",
+    "nakshatra": "Shravana",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-09": {
+    "tithi": "Vaishakh Krishna Saptami",
+    "nakshatra": "Dhanishta",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-10": {
+    "tithi": "Vaishakh Krishna Ashtami",
+    "nakshatra": "Shatabhisha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-11": {
+    "tithi": "Vaishakh Krishna Navami",
+    "nakshatra": "Purva Bhadrapada",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-12": {
+    "tithi": "Vaishakh Krishna Dashami",
+    "nakshatra": "Uttara Bhadrapada",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-13": {
+    "tithi": "Vaishakh Krishna Ekadashi",
+    "nakshatra": "Revati",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-14": {
+    "tithi": "Vaishakh Krishna Dwadashi",
+    "nakshatra": "Ashwini",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-15": {
+    "tithi": "Vaishakh Krishna Trayodashi",
+    "nakshatra": "Bharani",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-16": {
+    "tithi": "Vaishakh Krishna Chaturdashi",
+    "nakshatra": "Krittika",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-17": {
+    "tithi": "Vaishakh Krishna Amavasya",
+    "nakshatra": "Rohini",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-05-18": {
+    "tithi": "Vaishakh Shukla Pratipada",
+    "nakshatra": "Mrigashira",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-19": {
+    "tithi": "Vaishakh Shukla Dwitiya",
+    "nakshatra": "Ardra",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-20": {
+    "tithi": "Vaishakh Shukla Tritiya",
+    "nakshatra": "Punarvasu",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-21": {
+    "tithi": "Vaishakh Shukla Chaturthi",
+    "nakshatra": "Ashlesha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-22": {
+    "tithi": "Vaishakh Shukla Panchami",
+    "nakshatra": "Magha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-23": {
+    "tithi": "Vaishakh Shukla Shashthi",
+    "nakshatra": "Purva Phalguni",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-24": {
+    "tithi": "Vaishakh Shukla Saptami",
+    "nakshatra": "Uttara Phalguni",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-25": {
+    "tithi": "Jyeshtha Shukla Navami",
+    "nakshatra": "Hasta",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-26": {
+    "tithi": "Jyeshtha Shukla Dashami",
+    "nakshatra": "Chitra",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-27": {
+    "tithi": "Jyeshtha Shukla Ekadashi",
+    "nakshatra": "Swati",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-28": {
+    "tithi": "Jyeshtha Shukla Dwadashi",
+    "nakshatra": "Vishakha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-29": {
+    "tithi": "Jyeshtha Shukla Trayodashi",
+    "nakshatra": "Anuradha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-30": {
+    "tithi": "Jyeshtha Shukla Chaturdashi",
+    "nakshatra": "Jyeshtha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-05-31": {
+    "tithi": "Jyeshtha Shukla Purnima",
+    "nakshatra": "Mula",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-01": {
+    "tithi": "Jyeshtha Krishna Pratipada",
+    "nakshatra": "Purva Ashadha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-02": {
+    "tithi": "Jyeshtha Krishna Dwitiya",
+    "nakshatra": "Uttara Ashadha",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-03": {
+    "tithi": "Jyeshtha Krishna Tritiya",
+    "nakshatra": "Shravana",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-04": {
+    "tithi": "Jyeshtha Krishna Chaturthi",
+    "nakshatra": "Dhanishta",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-05": {
+    "tithi": "Jyeshtha Krishna Panchami",
+    "nakshatra": "Shatabhisha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-06": {
+    "tithi": "Jyeshtha Krishna Shashthi",
+    "nakshatra": "Purva Bhadrapada",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-07": {
+    "tithi": "Jyeshtha Krishna Saptami",
+    "nakshatra": "Uttara Bhadrapada",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-08": {
+    "tithi": "Jyeshtha Krishna Ashtami",
+    "nakshatra": "Revati",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-09": {
+    "tithi": "Jyeshtha Krishna Navami",
+    "nakshatra": "Ashwini",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-10": {
+    "tithi": "Jyeshtha Krishna Dashami",
+    "nakshatra": "Bharani",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-11": {
+    "tithi": "Jyeshtha Krishna Ekadashi",
+    "nakshatra": "Krittika",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-12": {
+    "tithi": "Jyeshtha Krishna Dwadashi",
+    "nakshatra": "Rohini",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-13": {
+    "tithi": "Jyeshtha Krishna Trayodashi",
+    "nakshatra": "Mrigashira",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-14": {
+    "tithi": "Jyeshtha Krishna Chaturdashi",
+    "nakshatra": "Ardra",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-15": {
+    "tithi": "Jyeshtha Krishna Amavasya",
+    "nakshatra": "Punarvasu",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-06-16": {
+    "tithi": "Jyeshtha Shukla Pratipada",
+    "nakshatra": "Pushya",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-17": {
+    "tithi": "Jyeshtha Shukla Dwitiya",
+    "nakshatra": "Magha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-18": {
+    "tithi": "Jyeshtha Shukla Tritiya",
+    "nakshatra": "Purva Phalguni",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-19": {
+    "tithi": "Jyeshtha Shukla Chaturthi",
+    "nakshatra": "Uttara Phalguni",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-20": {
+    "tithi": "Jyeshtha Shukla Panchami",
+    "nakshatra": "Hasta",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-21": {
+    "tithi": "Jyeshtha Shukla Shashthi",
+    "nakshatra": "Chitra",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-22": {
+    "tithi": "Jyeshtha Shukla Saptami",
+    "nakshatra": "Swati",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-23": {
+    "tithi": "Ashadha Shukla Navami",
+    "nakshatra": "Vishakha",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-24": {
+    "tithi": "Ashadha Shukla Dashami",
+    "nakshatra": "Anuradha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-25": {
+    "tithi": "Ashadha Shukla Ekadashi",
+    "nakshatra": "Jyeshtha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-26": {
+    "tithi": "Ashadha Shukla Dwadashi",
+    "nakshatra": "Mula",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-27": {
+    "tithi": "Ashadha Shukla Trayodashi",
+    "nakshatra": "Purva Ashadha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-28": {
+    "tithi": "Ashadha Shukla Chaturdashi",
+    "nakshatra": "Uttara Ashadha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-29": {
+    "tithi": "Ashadha Shukla Purnima",
+    "nakshatra": "Shravana",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-06-30": {
+    "tithi": "Ashadha Krishna Pratipada",
+    "nakshatra": "Dhanishta",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-01": {
+    "tithi": "Ashadha Krishna Dwitiya",
+    "nakshatra": "Shatabhisha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-02": {
+    "tithi": "Ashadha Krishna Tritiya",
+    "nakshatra": "Purva Bhadrapada",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-03": {
+    "tithi": "Ashadha Krishna Chaturthi",
+    "nakshatra": "Uttara Bhadrapada",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-04": {
+    "tithi": "Ashadha Krishna Panchami",
+    "nakshatra": "Revati",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-05": {
+    "tithi": "Ashadha Krishna Shashthi",
+    "nakshatra": "Ashwini",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-06": {
+    "tithi": "Ashadha Krishna Saptami",
+    "nakshatra": "Bharani",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-07": {
+    "tithi": "Ashadha Krishna Ashtami",
+    "nakshatra": "Krittika",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-08": {
+    "tithi": "Ashadha Krishna Navami",
+    "nakshatra": "Rohini",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-09": {
+    "tithi": "Ashadha Krishna Dashami",
+    "nakshatra": "Mrigashira",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-10": {
+    "tithi": "Ashadha Krishna Ekadashi",
+    "nakshatra": "Ardra",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-11": {
+    "tithi": "Ashadha Krishna Dwadashi",
+    "nakshatra": "Punarvasu",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-12": {
+    "tithi": "Ashadha Krishna Trayodashi",
+    "nakshatra": "Pushya",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-13": {
+    "tithi": "Ashadha Krishna Chaturdashi",
+    "nakshatra": "Ashlesha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-14": {
+    "tithi": "Ashadha Krishna Amavasya",
+    "nakshatra": "Purva Phalguni",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-15": {
+    "tithi": "Ashadha Shukla Pratipada",
+    "nakshatra": "Uttara Phalguni",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-16": {
+    "tithi": "Ashadha Shukla Dwitiya",
+    "nakshatra": "Hasta",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-17": {
+    "tithi": "Ashadha Shukla Tritiya",
+    "nakshatra": "Chitra",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-18": {
+    "tithi": "Ashadha Shukla Chaturthi",
+    "nakshatra": "Swati",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-19": {
+    "tithi": "Ashadha Shukla Panchami",
+    "nakshatra": "Vishakha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-20": {
+    "tithi": "Ashadha Shukla Shashthi",
+    "nakshatra": "Anuradha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-21": {
+    "tithi": "Ashadha Shukla Saptami",
+    "nakshatra": "Jyeshtha",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-22": {
+    "tithi": "Shravan Shukla Navami",
+    "nakshatra": "Mula",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-23": {
+    "tithi": "Shravan Shukla Dashami",
+    "nakshatra": "Purva Ashadha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-24": {
+    "tithi": "Shravan Shukla Ekadashi",
+    "nakshatra": "Uttara Ashadha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-25": {
+    "tithi": "Shravan Shukla Dwadashi",
+    "nakshatra": "Shravana",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-26": {
+    "tithi": "Shravan Shukla Trayodashi",
+    "nakshatra": "Dhanishta",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-27": {
+    "tithi": "Shravan Shukla Chaturdashi",
+    "nakshatra": "Shatabhisha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-28": {
+    "tithi": "Shravan Shukla Purnima",
+    "nakshatra": "Purva Bhadrapada",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-07-29": {
+    "tithi": "Shravan Krishna Pratipada",
+    "nakshatra": "Uttara Bhadrapada",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-30": {
+    "tithi": "Shravan Krishna Dwitiya",
+    "nakshatra": "Revati",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-07-31": {
+    "tithi": "Shravan Krishna Tritiya",
+    "nakshatra": "Ashwini",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-01": {
+    "tithi": "Shravan Krishna Chaturthi",
+    "nakshatra": "Bharani",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-02": {
+    "tithi": "Shravan Krishna Panchami",
+    "nakshatra": "Krittika",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-03": {
+    "tithi": "Shravan Krishna Shashthi",
+    "nakshatra": "Rohini",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-04": {
+    "tithi": "Shravan Krishna Saptami",
+    "nakshatra": "Mrigashira",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-05": {
+    "tithi": "Shravan Krishna Ashtami",
+    "nakshatra": "Ardra",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-06": {
+    "tithi": "Shravan Krishna Navami",
+    "nakshatra": "Punarvasu",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-07": {
+    "tithi": "Shravan Krishna Dashami",
+    "nakshatra": "Pushya",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-08": {
+    "tithi": "Shravan Krishna Ekadashi",
+    "nakshatra": "Ashlesha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-09": {
+    "tithi": "Shravan Krishna Dwadashi",
+    "nakshatra": "Magha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-10": {
+    "tithi": "Shravan Krishna Trayodashi",
+    "nakshatra": "Uttara Phalguni",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-11": {
+    "tithi": "Shravan Krishna Chaturdashi",
+    "nakshatra": "Hasta",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-12": {
+    "tithi": "Shravan Krishna Amavasya",
+    "nakshatra": "Chitra",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-13": {
+    "tithi": "Shravan Shukla Pratipada",
+    "nakshatra": "Swati",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-14": {
+    "tithi": "Shravan Shukla Dwitiya",
+    "nakshatra": "Vishakha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-15": {
+    "tithi": "Shravan Shukla Tritiya",
+    "nakshatra": "Anuradha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-16": {
+    "tithi": "Shravan Shukla Chaturthi",
+    "nakshatra": "Jyeshtha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-17": {
+    "tithi": "Shravan Shukla Panchami",
+    "nakshatra": "Mula",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-18": {
+    "tithi": "Shravan Shukla Shashthi",
+    "nakshatra": "Purva Ashadha",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-19": {
+    "tithi": "Shravan Shukla Saptami",
+    "nakshatra": "Uttara Ashadha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-20": {
+    "tithi": "Bhadrapad Shukla Navami",
+    "nakshatra": "Shravana",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-21": {
+    "tithi": "Bhadrapad Shukla Dashami",
+    "nakshatra": "Dhanishta",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-22": {
+    "tithi": "Bhadrapad Shukla Ekadashi",
+    "nakshatra": "Shatabhisha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-23": {
+    "tithi": "Bhadrapad Shukla Dwadashi",
+    "nakshatra": "Purva Bhadrapada",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-24": {
+    "tithi": "Bhadrapad Shukla Trayodashi",
+    "nakshatra": "Uttara Bhadrapada",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-25": {
+    "tithi": "Bhadrapad Shukla Chaturdashi",
+    "nakshatra": "Revati",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-26": {
+    "tithi": "Bhadrapad Shukla Purnima",
+    "nakshatra": "Ashwini",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-08-27": {
+    "tithi": "Bhadrapad Krishna Pratipada",
+    "nakshatra": "Bharani",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-28": {
+    "tithi": "Bhadrapad Krishna Dwitiya",
+    "nakshatra": "Krittika",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-29": {
+    "tithi": "Bhadrapad Krishna Tritiya",
+    "nakshatra": "Rohini",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-30": {
+    "tithi": "Bhadrapad Krishna Chaturthi",
+    "nakshatra": "Mrigashira",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-08-31": {
+    "tithi": "Bhadrapad Krishna Panchami",
+    "nakshatra": "Ardra",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-01": {
+    "tithi": "Bhadrapad Krishna Shashthi",
+    "nakshatra": "Punarvasu",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-02": {
+    "tithi": "Bhadrapad Krishna Saptami",
+    "nakshatra": "Pushya",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-03": {
+    "tithi": "Bhadrapad Krishna Ashtami",
+    "nakshatra": "Ashlesha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-04": {
+    "tithi": "Bhadrapad Krishna Navami",
+    "nakshatra": "Magha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-05": {
+    "tithi": "Bhadrapad Krishna Dashami",
+    "nakshatra": "Purva Phalguni",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-06": {
+    "tithi": "Bhadrapad Krishna Ekadashi",
+    "nakshatra": "Hasta",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-07": {
+    "tithi": "Bhadrapad Krishna Dwadashi",
+    "nakshatra": "Chitra",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-08": {
+    "tithi": "Bhadrapad Krishna Trayodashi",
+    "nakshatra": "Swati",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-09": {
+    "tithi": "Bhadrapad Krishna Chaturdashi",
+    "nakshatra": "Vishakha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-10": {
+    "tithi": "Bhadrapad Krishna Amavasya",
+    "nakshatra": "Anuradha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-11": {
+    "tithi": "Bhadrapad Shukla Pratipada",
+    "nakshatra": "Jyeshtha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-12": {
+    "tithi": "Bhadrapad Shukla Dwitiya",
+    "nakshatra": "Mula",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-13": {
+    "tithi": "Bhadrapad Shukla Tritiya",
+    "nakshatra": "Purva Ashadha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-14": {
+    "tithi": "Bhadrapad Shukla Chaturthi",
+    "nakshatra": "Uttara Ashadha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-15": {
+    "tithi": "Bhadrapad Shukla Panchami",
+    "nakshatra": "Shravana",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-16": {
+    "tithi": "Bhadrapad Shukla Shashthi",
+    "nakshatra": "Dhanishta",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-17": {
+    "tithi": "Bhadrapad Shukla Saptami",
+    "nakshatra": "Shatabhisha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-18": {
+    "tithi": "Ashwin Shukla Navami",
+    "nakshatra": "Purva Bhadrapada",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-19": {
+    "tithi": "Ashwin Shukla Dashami",
+    "nakshatra": "Uttara Bhadrapada",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-20": {
+    "tithi": "Ashwin Shukla Ekadashi",
+    "nakshatra": "Revati",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-21": {
+    "tithi": "Ashwin Shukla Dwadashi",
+    "nakshatra": "Ashwini",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-22": {
+    "tithi": "Ashwin Shukla Trayodashi",
+    "nakshatra": "Bharani",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-23": {
+    "tithi": "Ashwin Shukla Chaturdashi",
+    "nakshatra": "Krittika",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-24": {
+    "tithi": "Ashwin Shukla Purnima",
+    "nakshatra": "Rohini",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-09-25": {
+    "tithi": "Ashwin Krishna Pratipada",
+    "nakshatra": "Mrigashira",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-26": {
+    "tithi": "Ashwin Krishna Dwitiya",
+    "nakshatra": "Ardra",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-27": {
+    "tithi": "Ashwin Krishna Tritiya",
+    "nakshatra": "Punarvasu",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-28": {
+    "tithi": "Ashwin Krishna Chaturthi",
+    "nakshatra": "Pushya",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-29": {
+    "tithi": "Ashwin Krishna Panchami",
+    "nakshatra": "Ashlesha",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-09-30": {
+    "tithi": "Ashwin Krishna Shashthi",
+    "nakshatra": "Magha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-01": {
+    "tithi": "Ashwin Krishna Saptami",
+    "nakshatra": "Purva Phalguni",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-02": {
+    "tithi": "Ashwin Krishna Ashtami",
+    "nakshatra": "Uttara Phalguni",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-03": {
+    "tithi": "Ashwin Krishna Navami",
+    "nakshatra": "Chitra",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-04": {
+    "tithi": "Ashwin Krishna Dashami",
+    "nakshatra": "Swati",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-05": {
+    "tithi": "Ashwin Krishna Ekadashi",
+    "nakshatra": "Vishakha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-06": {
+    "tithi": "Ashwin Krishna Dwadashi",
+    "nakshatra": "Anuradha",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-07": {
+    "tithi": "Ashwin Krishna Trayodashi",
+    "nakshatra": "Jyeshtha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-08": {
+    "tithi": "Ashwin Krishna Chaturdashi",
+    "nakshatra": "Mula",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-09": {
+    "tithi": "Ashwin Krishna Amavasya",
+    "nakshatra": "Purva Ashadha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-10": {
+    "tithi": "Ashwin Shukla Pratipada",
+    "nakshatra": "Uttara Ashadha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-11": {
+    "tithi": "Ashwin Shukla Dwitiya",
+    "nakshatra": "Shravana",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-12": {
+    "tithi": "Ashwin Shukla Tritiya",
+    "nakshatra": "Dhanishta",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-13": {
+    "tithi": "Ashwin Shukla Chaturthi",
+    "nakshatra": "Shatabhisha",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-14": {
+    "tithi": "Ashwin Shukla Panchami",
+    "nakshatra": "Purva Bhadrapada",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-15": {
+    "tithi": "Ashwin Shukla Shashthi",
+    "nakshatra": "Uttara Bhadrapada",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-16": {
+    "tithi": "Ashwin Shukla Saptami",
+    "nakshatra": "Revati",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-17": {
+    "tithi": "Kartik Shukla Navami",
+    "nakshatra": "Ashwini",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-18": {
+    "tithi": "Kartik Shukla Dashami",
+    "nakshatra": "Bharani",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-19": {
+    "tithi": "Kartik Shukla Ekadashi",
+    "nakshatra": "Krittika",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-20": {
+    "tithi": "Kartik Shukla Dwadashi",
+    "nakshatra": "Rohini",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-21": {
+    "tithi": "Kartik Shukla Trayodashi",
+    "nakshatra": "Mrigashira",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-22": {
+    "tithi": "Kartik Shukla Chaturdashi",
+    "nakshatra": "Ardra",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-23": {
+    "tithi": "Kartik Shukla Purnima",
+    "nakshatra": "Punarvasu",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-10-24": {
+    "tithi": "Kartik Krishna Pratipada",
+    "nakshatra": "Pushya",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-25": {
+    "tithi": "Kartik Krishna Dwitiya",
+    "nakshatra": "Ashlesha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-26": {
+    "tithi": "Kartik Krishna Tritiya",
+    "nakshatra": "Magha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-27": {
+    "tithi": "Kartik Krishna Chaturthi",
+    "nakshatra": "Purva Phalguni",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-28": {
+    "tithi": "Kartik Krishna Panchami",
+    "nakshatra": "Uttara Phalguni",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-29": {
+    "tithi": "Kartik Krishna Shashthi",
+    "nakshatra": "Hasta",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-30": {
+    "tithi": "Kartik Krishna Saptami",
+    "nakshatra": "Swati",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-10-31": {
+    "tithi": "Kartik Krishna Ashtami",
+    "nakshatra": "Vishakha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-01": {
+    "tithi": "Kartik Krishna Navami",
+    "nakshatra": "Anuradha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-02": {
+    "tithi": "Kartik Krishna Dashami",
+    "nakshatra": "Jyeshtha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-03": {
+    "tithi": "Kartik Krishna Ekadashi",
+    "nakshatra": "Mula",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-04": {
+    "tithi": "Kartik Krishna Dwadashi",
+    "nakshatra": "Purva Ashadha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-05": {
+    "tithi": "Kartik Krishna Trayodashi",
+    "nakshatra": "Uttara Ashadha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-06": {
+    "tithi": "Kartik Krishna Chaturdashi",
+    "nakshatra": "Shravana",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-07": {
+    "tithi": "Kartik Krishna Amavasya",
+    "nakshatra": "Dhanishta",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-08": {
+    "tithi": "Kartik Shukla Pratipada",
+    "nakshatra": "Shatabhisha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-09": {
+    "tithi": "Kartik Shukla Dwitiya",
+    "nakshatra": "Purva Bhadrapada",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-10": {
+    "tithi": "Kartik Shukla Tritiya",
+    "nakshatra": "Uttara Bhadrapada",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-11": {
+    "tithi": "Kartik Shukla Chaturthi",
+    "nakshatra": "Revati",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-12": {
+    "tithi": "Kartik Shukla Panchami",
+    "nakshatra": "Ashwini",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-13": {
+    "tithi": "Kartik Shukla Shashthi",
+    "nakshatra": "Bharani",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-14": {
+    "tithi": "Kartik Shukla Saptami",
+    "nakshatra": "Krittika",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-15": {
+    "tithi": "Margashirsha Shukla Navami",
+    "nakshatra": "Rohini",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-16": {
+    "tithi": "Margashirsha Shukla Dashami",
+    "nakshatra": "Mrigashira",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-17": {
+    "tithi": "Margashirsha Shukla Ekadashi",
+    "nakshatra": "Ardra",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-18": {
+    "tithi": "Margashirsha Shukla Dwadashi",
+    "nakshatra": "Punarvasu",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-19": {
+    "tithi": "Margashirsha Shukla Trayodashi",
+    "nakshatra": "Pushya",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-20": {
+    "tithi": "Margashirsha Shukla Chaturdashi",
+    "nakshatra": "Ashlesha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-21": {
+    "tithi": "Margashirsha Shukla Purnima",
+    "nakshatra": "Magha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-11-22": {
+    "tithi": "Margashirsha Krishna Pratipada",
+    "nakshatra": "Purva Phalguni",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-23": {
+    "tithi": "Margashirsha Krishna Dwitiya",
+    "nakshatra": "Uttara Phalguni",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-24": {
+    "tithi": "Margashirsha Krishna Tritiya",
+    "nakshatra": "Hasta",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-25": {
+    "tithi": "Margashirsha Krishna Chaturthi",
+    "nakshatra": "Chitra",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-26": {
+    "tithi": "Margashirsha Krishna Panchami",
+    "nakshatra": "Vishakha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-27": {
+    "tithi": "Margashirsha Krishna Shashthi",
+    "nakshatra": "Anuradha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-28": {
+    "tithi": "Margashirsha Krishna Saptami",
+    "nakshatra": "Jyeshtha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-29": {
+    "tithi": "Margashirsha Krishna Ashtami",
+    "nakshatra": "Mula",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-11-30": {
+    "tithi": "Margashirsha Krishna Navami",
+    "nakshatra": "Purva Ashadha",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-01": {
+    "tithi": "Margashirsha Krishna Dashami",
+    "nakshatra": "Uttara Ashadha",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-02": {
+    "tithi": "Margashirsha Krishna Ekadashi",
+    "nakshatra": "Shravana",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-03": {
+    "tithi": "Margashirsha Krishna Dwadashi",
+    "nakshatra": "Dhanishta",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-04": {
+    "tithi": "Margashirsha Krishna Trayodashi",
+    "nakshatra": "Shatabhisha",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-05": {
+    "tithi": "Margashirsha Krishna Chaturdashi",
+    "nakshatra": "Purva Bhadrapada",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-06": {
+    "tithi": "Margashirsha Krishna Amavasya",
+    "nakshatra": "Uttara Bhadrapada",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-07": {
+    "tithi": "Margashirsha Shukla Pratipada",
+    "nakshatra": "Revati",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-08": {
+    "tithi": "Margashirsha Shukla Dwitiya",
+    "nakshatra": "Ashwini",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-09": {
+    "tithi": "Margashirsha Shukla Tritiya",
+    "nakshatra": "Bharani",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-10": {
+    "tithi": "Margashirsha Shukla Chaturthi",
+    "nakshatra": "Krittika",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-11": {
+    "tithi": "Margashirsha Shukla Panchami",
+    "nakshatra": "Rohini",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-12": {
+    "tithi": "Margashirsha Shukla Shashthi",
+    "nakshatra": "Mrigashira",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-13": {
+    "tithi": "Margashirsha Shukla Saptami",
+    "nakshatra": "Ardra",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-14": {
+    "tithi": "Paush Shukla Navami",
+    "nakshatra": "Punarvasu",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-15": {
+    "tithi": "Paush Shukla Dashami",
+    "nakshatra": "Pushya",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-16": {
+    "tithi": "Paush Shukla Ekadashi",
+    "nakshatra": "Ashlesha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-17": {
+    "tithi": "Paush Shukla Dwadashi",
+    "nakshatra": "Magha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-18": {
+    "tithi": "Paush Shukla Trayodashi",
+    "nakshatra": "Purva Phalguni",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-19": {
+    "tithi": "Paush Shukla Chaturdashi",
+    "nakshatra": "Uttara Phalguni",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-20": {
+    "tithi": "Paush Shukla Purnima",
+    "nakshatra": "Hasta",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Shukla"
+  },
+  "2026-12-21": {
+    "tithi": "Paush Krishna Pratipada",
+    "nakshatra": "Chitra",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-22": {
+    "tithi": "Paush Krishna Dwitiya",
+    "nakshatra": "Swati",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-23": {
+    "tithi": "Paush Krishna Tritiya",
+    "nakshatra": "Anuradha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-24": {
+    "tithi": "Paush Krishna Chaturthi",
+    "nakshatra": "Jyeshtha",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-25": {
+    "tithi": "Paush Krishna Panchami",
+    "nakshatra": "Mula",
+    "rahuKaal": "9:00 AM - 10:30 AM",
+    "shubhRang": "Blue/Black",
+    "shubhAnk": 8,
+    "var": "Shanivaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-26": {
+    "tithi": "Paush Krishna Shashthi",
+    "nakshatra": "Purva Ashadha",
+    "rahuKaal": "4:30 PM - 6:00 PM",
+    "shubhRang": "Orange",
+    "shubhAnk": 1,
+    "var": "Ravivaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-27": {
+    "tithi": "Paush Krishna Saptami",
+    "nakshatra": "Uttara Ashadha",
+    "rahuKaal": "7:30 AM - 9:00 AM",
+    "shubhRang": "White",
+    "shubhAnk": 2,
+    "var": "Somvaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-28": {
+    "tithi": "Paush Krishna Ashtami",
+    "nakshatra": "Shravana",
+    "rahuKaal": "3:00 PM - 4:30 PM",
+    "shubhRang": "Red",
+    "shubhAnk": 9,
+    "var": "Mangalvaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-29": {
+    "tithi": "Paush Krishna Navami",
+    "nakshatra": "Dhanishta",
+    "rahuKaal": "12:00 PM - 1:30 PM",
+    "shubhRang": "Green",
+    "shubhAnk": 5,
+    "var": "Budhvaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-30": {
+    "tithi": "Paush Krishna Dashami",
+    "nakshatra": "Shatabhisha",
+    "rahuKaal": "1:30 PM - 3:00 PM",
+    "shubhRang": "Yellow",
+    "shubhAnk": 3,
+    "var": "Guruvaar",
+    "paksha": "Krishna"
+  },
+  "2026-12-31": {
+    "tithi": "Paush Krishna Ekadashi",
+    "nakshatra": "Purva Bhadrapada",
+    "rahuKaal": "10:30 AM - 12:00 PM",
+    "shubhRang": "Pink",
+    "shubhAnk": 6,
+    "var": "Shukravaar",
+    "paksha": "Krishna"
+  }
+}

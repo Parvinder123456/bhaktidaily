@@ -1,0 +1,97 @@
+{
+  "name": "Sharad Navratri 2026",
+  "startDate": "2026-10-11",
+  "endDate": "2026-10-19",
+  "days": [
+    {
+      "dayNumber": 1,
+      "title": "Maa Shailputri",
+      "content": {
+        "goddess": "Maa Shailputri",
+        "color": "Orange",
+        "mantra": "Om Devi Shailputryai Namah",
+        "story": "Maa Shailputri Parvat Raj Himalaya ki putri hain. Ye Navdurga ka pehla roop hain. Inke ek haath mein trishul aur doosre mein kamal hai. Nandi unka vahaan hai."
+      }
+    },
+    {
+      "dayNumber": 2,
+      "title": "Maa Brahmacharini",
+      "content": {
+        "goddess": "Maa Brahmacharini",
+        "color": "White",
+        "mantra": "Om Devi Brahmacharinyai Namah",
+        "story": "Maa Brahmacharini tapasya aur sanyam ki devi hain. Inhone Bhagwan Shiv ko pati roop mein paane ke liye hazaaron saal tapasya ki. Ye bhakti aur tyag ka pratik hain."
+      }
+    },
+    {
+      "dayNumber": 3,
+      "title": "Maa Chandraghanta",
+      "content": {
+        "goddess": "Maa Chandraghanta",
+        "color": "Red",
+        "mantra": "Om Devi Chandraghantayai Namah",
+        "story": "Maa Chandraghanta ke mastak par aadhe chandra ke aakar ki ghanta hai. Ye saurya aur nidarta ki devi hain. Inki upasana se paap aur sankat door hote hain."
+      }
+    },
+    {
+      "dayNumber": 4,
+      "title": "Maa Kushmanda",
+      "content": {
+        "goddess": "Maa Kushmanda",
+        "color": "Royal Blue",
+        "mantra": "Om Devi Kushmandayai Namah",
+        "story": "Maa Kushmanda ne apni mandh hasi se brahmand ki rachna ki. 'Ku' ka arth thoda, 'Ushma' arth oorja, 'Anda' arth brahmand. Ye Surya ke andar nivas karti hain."
+      }
+    },
+    {
+      "dayNumber": 5,
+      "title": "Maa Skandamata",
+      "content": {
+        "goddess": "Maa Skandamata",
+        "color": "Yellow",
+        "mantra": "Om Devi Skandamatayai Namah",
+        "story": "Maa Skandamata Bhagwan Kartikeya (Skanda) ki mata hain. Ye kamal ke aasan par virajmaan rehti hain. Inki upasana se santan sukh aur moksha milta hai."
+      }
+    },
+    {
+      "dayNumber": 6,
+      "title": "Maa Katyayani",
+      "content": {
+        "goddess": "Maa Katyayani",
+        "color": "Green",
+        "mantra": "Om Devi Katyayanyai Namah",
+        "story": "Maa Katyayani Maharishi Katyayan ki putri ke roop mein prakat hui. Inhone Mahishasur ka vadh kiya. Vivah mein deri hone par is devi ki puja ki jaati hai."
+      }
+    },
+    {
+      "dayNumber": 7,
+      "title": "Maa Kaalratri",
+      "content": {
+        "goddess": "Maa Kaalratri",
+        "color": "Grey",
+        "mantra": "Om Devi Kaalratryai Namah",
+        "story": "Maa Kaalratri ka roop atyant bhayanak hai lekin ye shubhankari hain — isliye inhe 'Shubhankari' bhi kaha jaata hai. Ye dusht shaktyon ka naash karti hain."
+      }
+    },
+    {
+      "dayNumber": 8,
+      "title": "Maa Mahagauri",
+      "content": {
+        "goddess": "Maa Mahagauri",
+        "color": "Purple",
+        "mantra": "Om Devi Mahagauryai Namah",
+        "story": "Maa Mahagauri atyant gauri (gori) hain. Bhagwan Shiv ne inhe Ganga jal se snaan karaya tab ye Mahagauri ban gayin. Ye pavitrta aur shanti ki devi hain."
+      }
+    },
+    {
+      "dayNumber": 9,
+      "title": "Maa Siddhidatri",
+      "content": {
+        "goddess": "Maa Siddhidatri",
+        "color": "Peacock Green",
+        "mantra": "Om Devi Siddhidatryai Namah",
+        "story": "Maa Siddhidatri sabhi siddhiyan pradan karti hain. Ye kamal par virajmaan rehti hain. Inki kripa se asambhav bhi sambhav ho jaata hai. Swayam Shiv ji ne inse siddhiyan paayi thi."
+      }
+    }
+  ]
+}

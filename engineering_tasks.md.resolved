@@ -1,0 +1,804 @@
+# DharmaDaily — Engineering Tasks
+
+> **Stack**: Node.js + Express (Railway) · PostgreSQL (Supabase) · Redis + BullMQ (Railway) · Gemini Flash 2.0 · Twilio WhatsApp API · Next.js (Vercel)
+> Every task: ≤ 5 files · independently testable · acceptance criteria defined · ordered by dependency.
+
+---
+
+## Phase 0 — Project Bootstrap (Days 1–2)
+
+### TASK-001 · Initialise Monorepo
+
+**Files**
+- `package.json` (root)
+- `.gitignore`
+- `README.md`
+- `server/package.json`
+- `dashboard/package.json`
+
+**Steps**
+1. Create root `package.json` with `"workspaces": ["server", "dashboard"]`
+2. `mkdir server dashboard scripts data`
+3. `cd server && npm init -y`
+4. `cd dashboard && npx -y create-next-app@latest ./ --ts --app --no-tailwind --eslint`
+5. Add standard `.gitignore` (node_modules, .env, .next, dist)
+
+**Acceptance Criteria**
+- [ ] `npm install` from root installs both workspaces without errors
+- [ ] `cd dashboard && npm run dev` starts Next.js on port 3000
+- [ ] `.gitignore` excludes node_modules and .env files
+
+---
+
+### TASK-002 · Environment Configuration
+
+**Files**
+- `server/.env.example`
+- `server/src/config/env.js`
+- `dashboard/.env.example`
+- `dashboard/src/lib/env.js`
+
+**Steps**
+1. Create `server/.env.example` with all keys listed below
+2. Build `server/src/config/env.js` — validates required vars at startup using a simple check
+3. Repeat for `dashboard/`
+
+**server/.env.example keys**
+```
+DATABASE_URL=
+REDIS_URL=
+TWILIO_ACCOUNT_SID=
+TWILIO_AUTH_TOKEN=
+TWILIO_WHATSAPP_FROM=
+GEMINI_API_KEY=
+JWT_SECRET=
+PORT=3001
+NODE_ENV=development
+```
+
+**Acceptance Criteria**
+- [ ] Starting `server` with a missing required env var throws a clear error with the missing key name
+- [ ] `.env.example` has every key used anywhere in the codebase (verified by grep)
+
+---
+
+### TASK-003 · Express Server Shell
+
+**Files**
+- `server/src/app.js`
+- `server/src/server.js`
+- `server/src/routes/index.js`
+- `server/src/middleware/errorHandler.js`
+
+**Steps**
+1. `npm install express cors helmet express-async-errors`
+2. `app.js` — configure Express with cors, helmet, JSON body parser, routes, error handler
+3. `server.js` — starts HTTP server, logs port
+4. `routes/index.js` — mounts a GET `/health` that returns `{ status: "ok", timestamp }`
+5. Global error handler middleware with status + message response
+
+**Acceptance Criteria**
+- [ ] `GET /health` returns `200 { status: "ok" }`
+- [ ] An unhandled route returns `404 { error: "Not found" }`
+- [ ] Throwing an error in a route returns `500 { error: "..." }` without crashing the server
+
+---
+
+### TASK-004 · Linting & Code Style
+
+**Files**
+- `.eslintrc.json` (root)
+- `.prettierrc` (root)
+- `server/jest.config.js`
+- `server/package.json` (add scripts)
+
+**Steps**
+1. `npm install -D eslint prettier eslint-config-prettier jest`
+2. Configure ESLint (Node 20, commonjs) + Prettier (single quotes, 2 spaces)
+3. Add scripts to `server/package.json`: `"lint"`, `"test"`, `"dev"` (nodemon), `"start"`
+4. Write and pass one trivial Jest test (`1 + 1 === 2`) to confirm Jest works
+
+**Acceptance Criteria**
+- [ ] `npm run lint` passes with zero errors on the stub project
+- [ ] `npm test` finds and runs the trivial test with Jest
+- [ ] `npm run dev` starts server with nodemon auto-restart
+
+---
+
+## Phase 1 — Database & Scripture Foundation (Days 3–6)
+
+### TASK-005 · Prisma Setup & Database Connection
+
+**Files**
+- `server/prisma/schema.prisma`
+- `server/src/config/db.js`
+- `server/src/config/env.js` (minor update)
+
+**Steps**
+1. `npm install @prisma/client && npx prisma init`
+2. Write full schema (User, Scripture, DailyMessage, Conversation — see implementation plan)
+3. `npx prisma migrate dev --name init`
+4. `db.js` — exports singleton PrismaClient
+5. On `GET /health`, include a DB ping
+
+**Acceptance Criteria**
+- [ ] `npx prisma migrate dev` completes without errors
+- [ ] `npx prisma studio` shows all 4 tables with correct columns
+- [ ] `GET /health` returns `{ status: "ok", db: "connected" }`
+
+---
+
+### TASK-006 · Scripture Data Files
+
+**Files**
+- `data/scriptures/bhagavad_gita.json`
+- `data/scriptures/upanishads.json`
+- `data/scriptures/ramayana.json`
+- `data/scriptures/mantras.json`
+- `data/scriptures/stotras.json`
+
+**Format (each verse JSON object)**
+```json
+{
+  "source": "Bhagavad Gita",
+  "reference": "Chapter 2, Verse 47",
+  "textSanskrit": "कर्मण्येवाधिकारस्ते...",
+  "textEnglish": "You have a right to perform your prescribed duties...",
+  "textHindi": "कर्म करने में ही तुम्हारा अधिकार है...",
+  "tags": ["karma", "action", "detachment"],
+  "category": "shloka"
+}
+```
+
+**Targets**
+| File | Verses | Key tags |
+|---|---|---|
+| bhagavad_gita.json | 25 | karma, dharma, devotion, strength, detachment, equanimity |
+| upanishads.json | 10 | self-knowledge, truth, consciousness, peace |
+| ramayana.json | 10 | duty, courage, loyalty, faith, surrender |
+| mantras.json | 8 | peace, protection, gratitude, prosperity |
+| stotras.json | 7 | devotion, divine grace, Hanuman, Shiva, Devi |
+
+**Acceptance Criteria**
+- [ ] Total verse count ≥ 60
+- [ ] Every verse has at least one tag, both `textEnglish` and `textHindi`
+- [ ] No two verses share the same `reference`
+
+---
+
+### TASK-007 · Scripture Seed Script
+
+**Files**
+- `scripts/seed-scriptures.js`
+- `server/src/config/db.js` (read-only import)
+
+**Steps**
+1. Script reads all JSON files from `data/scriptures/`
+2. Upserts each verse into `Scripture` table (upsert by `source + reference`)
+3. Logs success count and any errors
+4. Add npm script: `"seed:scriptures": "node scripts/seed-scriptures.js"`
+
+**Acceptance Criteria**
+- [ ] `npm run seed:scriptures` completes with log: `"Seeded X verses successfully"`
+- [ ] Running it twice doesn't create duplicates
+- [ ] `npx prisma studio` shows correct verse count in Scripture table
+
+---
+
+### TASK-008 · Scripture Service
+
+**Files**
+- `server/src/services/scriptureService.js`
+- `server/tests/scriptureService.test.js`
+
+**Methods**
+```js
+getVerseByTag(tag)         // random verse matching a tag
+getVerseById(id)           // specific verse
+getRandomVerse()           // any verse
+getAllTags()               // distinct tags list
+```
+
+**Acceptance Criteria**
+- [ ] `getVerseByTag("karma")` returns a verse object with that tag
+- [ ] `getVerseByTag("nonexistent")` returns `null` without throwing
+- [ ] `getRandomVerse()` never returns `undefined` when DB has verses
+- [ ] Unit tests pass for all 4 methods (mock Prisma client)
+
+---
+
+## Phase 2 — WhatsApp Integration & Onboarding (Days 7–12)
+
+### TASK-009 · Twilio WhatsApp Webhook
+
+**Files**
+- `server/src/routes/webhook.js`
+- `server/src/controllers/webhookController.js`
+- `server/src/middleware/twilioAuth.js`
+
+**Steps**
+1. `npm install twilio`
+2. `twilioAuth.js` — validates `X-Twilio-Signature` header using Twilio SDK
+3. `webhookController.js` — parses Twilio POST body, extracts `From`, `Body`
+4. On valid request: logs `{ from, body }` and replies `200 OK`
+5. Register `POST /webhook/whatsapp` route
+
+**Acceptance Criteria**
+- [ ] A valid Twilio webhook POST returns 200
+- [ ] An invalid signature (wrong header) returns 403
+- [ ] Parsed `from` and `body` are logged to console
+- [ ] Test using `curl` or Twilio sandbox
+
+---
+
+### TASK-010 · User Service
+
+**Files**
+- `server/src/services/userService.js`
+- `server/tests/userService.test.js`
+
+**Methods**
+```js
+findByPhone(phone)
+createUser(phone)
+updateUser(phone, data)
+getOnboardingStep(phone)  // returns current step (0-5)
+setOnboardingStep(phone, step)
+markOnboarded(phone)
+```
+
+**Acceptance Criteria**
+- [ ] `createUser` creates a user with default values and `onboardingStep = 0`
+- [ ] `updateUser` merges only provided fields (no overwrite of unset fields)
+- [ ] `findByPhone` returns `null` for unknown number (no throw)
+- [ ] Unit tests pass for all methods (mock Prisma)
+
+---
+
+### TASK-011 · Onboarding State Machine
+
+**Files**
+- `server/src/services/onboardingService.js`
+- `server/tests/onboardingService.test.js`
+
+**Steps (state machine)**
+```
+Step 0 → Greeting + ask name
+Step 1 → Ask language (en / hi / both)
+Step 2 → Ask rashi (show numbered list 1–12)
+Step 3 → Ask delivery time (1=6AM, 2=7AM, 3=8AM, 4=custom)
+Step 4 → Confirm summary + mark onboarded
+```
+
+**Methods**
+```js
+handleOnboarding(user, incomingMessage)
+  → { responseText, nextStep, fieldsToUpdate }
+```
+
+**Acceptance Criteria**
+- [ ] Each step returns the correct prompt text
+- [ ] Selecting rashi "3" stores `rashi = "Mithun"` in fieldsToUpdate
+- [ ] Selecting language "3" stores `language = "both"`
+- [ ] Invalid input at any step re-sends the same prompt (no crash)
+- [ ] After Step 4, `isOnboarded = true` is in fieldsToUpdate
+- [ ] All 5 step transitions tested
+
+---
+
+### TASK-012 · Webhook Message Router
+
+**Files**
+- `server/src/controllers/webhookController.js` (update)
+- `server/src/services/messageRouterService.js`
+
+**Logic**
+```
+Incoming message:
+  → Find user by phone
+  → If not found: create user, begin onboarding (step 0)
+  → If onboarded = false: route to onboardingService
+  → If onboarded = true: route to chatService (Phase 3)
+```
+
+**Methods**
+```js
+routeMessage(phone, body)  → { replyText }
+```
+
+**Helper**
+```js
+sendWhatsAppMessage(to, body)  // Twilio API wrapper
+```
+
+**Acceptance Criteria**
+- [ ] First-ever "Hi" from a new number triggers onboarding step 0 response
+- [ ] Subsequent replies advance the onboarding step
+- [ ] After full onboarding, a new message triggers a placeholder "chat coming soon" reply
+- [ ] Test with Twilio sandbox end-to-end
+
+---
+
+## Phase 3 — AI Engine & Daily Message (Days 13–20)
+
+### TASK-013 · Gemini AI Service
+
+**Files**
+- `server/src/services/aiService.js`
+- `server/src/config/gemini.js`
+- `server/tests/aiService.test.js`
+
+**Steps**
+1. `npm install @google/generative-ai`
+2. `gemini.js` — initialises `GoogleGenerativeAI` with key rotation support (round-robin over multiple keys if provided)
+3. `aiService.js` — wraps `generateContent`, adds retry (3x, exponential backoff on 429/503)
+4. Exports: `generateText(prompt, systemInstruction)` → string
+
+**Acceptance Criteria**
+- [ ] `generateText("Say Namaste")` returns a non-empty string
+- [ ] On 429 error, retries up to 3 times before throwing
+- [ ] If `GEMINI_API_KEY` is comma-separated (multiple keys), rotates through them
+- [ ] Unit test: mock Gemini SDK, verify retry logic fires
+
+---
+
+### TASK-014 · Prompt Templates
+
+**Files**
+- `server/src/prompts/system.txt`
+- `server/src/prompts/daily.txt`
+- `server/src/prompts/chat.txt`
+- `server/src/services/promptService.js`
+
+**`promptService.js` methods**
+```js
+buildDailyPrompt({ name, rashi, language, verse, date })
+  → full prompt string
+
+buildChatPrompt({ user, history, question })
+  → full prompt string
+
+getSystemInstruction()
+  → system.txt contents
+```
+
+**daily.txt template**
+```
+Today is {{date}}.
+User's Rashi: {{rashi}}
+User's name: {{name}}
+Language preference: {{language}}
+
+A verified scripture verse on theme "{{tag}}":
+"{{verseText}}" — {{verseReference}}
+
+Generate a daily spiritual message with exactly three sections:
+1. RASHI READING (2-3 lines, spiritual tone, references {{rashi}}'s qualities)
+2. DAILY CHALLENGE (1 specific actionable task tied to above verse)
+
+Do NOT generate or modify the verse — use it exactly as provided.
+Format in WhatsApp-friendly plain text. Under 250 words total.
+{{#if language === "both"}}Write each section in Hindi first, then English.{{/if}}
+```
+
+**Acceptance Criteria**
+- [ ] `buildDailyPrompt(...)` returns a string containing rashi name and verse text
+- [ ] `buildChatPrompt(...)` includes last 5 conversation turns
+- [ ] Language preference `"both"` adds bilingual instruction to prompt
+- [ ] Unit tests verify template variable substitution
+
+---
+
+### TASK-015 · Daily Message Generation Service
+
+**Files**
+- `server/src/services/dailyMessageService.js`
+- `server/tests/dailyMessageService.test.js`
+
+**Method**
+```js
+generateDailyMessage(user)
+  → { horoscope, verse, challenge, fullText }
+```
+
+**Orchestration**
+1. Pick a random theme tag
+2. `scriptureService.getVerseByTag(tag)` → verse object
+3. `promptService.buildDailyPrompt(...)` with verse + user data
+4. `aiService.generateText(prompt, systemInstruction)`
+5. Parse AI output into `{ horoscope, challenge }` sections
+6. Return `{ horoscope, verse, challenge, fullText }` — fullText is formatted WhatsApp template string
+
+**Acceptance Criteria**
+- [ ] Returns object with non-empty `horoscope`, `verse`, `challenge`
+- [ ] Verse in output matches the one fetched from DB (not AI-generated)
+- [ ] Full text is under 300 words
+- [ ] Unit test: mock aiService + scriptureService, test orchestration logic
+
+---
+
+### TASK-016 · Conversation Service & Chat Handler
+
+**Files**
+- `server/src/services/conversationService.js`
+- `server/src/controllers/chatController.js`
+
+**`conversationService.js` methods**
+```js
+saveMessage(userId, role, content)
+getHistory(userId, limit = 5)  // last N turns
+```
+
+**`chatController.js`**
+```js
+handleChat(phone, incomingText)
+  → replyText
+```
+
+**Chat flow**
+1. Load user profile
+2. `conversationService.getHistory(userId, 5)`
+3. `promptService.buildChatPrompt({ user, history, question: incomingText })`
+4. `aiService.generateText(prompt, systemInstruction)`
+5. `conversationService.saveMessage(userId, "user", incomingText)`
+6. `conversationService.saveMessage(userId, "assistant", reply)`
+7. Return `reply`
+
+**Acceptance Criteria**
+- [ ] Chat reply references the user's faith (Hinduism) and is within 200 words
+- [ ] Conversation history is saved correctly (role alternates user/assistant)
+- [ ] `getHistory(userId, 5)` returns max 5 records ordered oldest-first
+- [ ] End-to-end: send a question via WhatsApp, receive AI reply
+
+---
+
+## Phase 4 — Scheduler & Streak System (Days 21–26)
+
+### TASK-017 · Redis & BullMQ Setup
+
+**Files**
+- `server/src/config/redis.js`
+- `server/src/config/queues.js`
+- `server/src/jobs/index.js`
+
+**Steps**
+1. `npm install bullmq ioredis`
+2. `redis.js` — creates ioredis connection from `REDIS_URL`
+3. `queues.js` — creates and exports two queues: `dailyMessageQueue`, `streakCheckQueue`
+4. `jobs/index.js` — creates Workers for both queues (processors referenced by name)
+5. On server startup, log `"BullMQ workers started"`
+
+**Acceptance Criteria**
+- [ ] `redis.js` connects without error (log `"Redis connected"`)
+- [ ] `queues.js` creates both queues without error
+- [ ] Adding a test job to `dailyMessageQueue` and starting a worker processes it
+- [ ] Failed jobs retry up to 3 times (verify via BullMQ `attempts: 3`)
+
+---
+
+### TASK-018 · Daily Message Job Processor
+
+**Files**
+- `server/src/jobs/sendDailyMessageJob.js`
+- `server/src/jobs/dailyScanJob.js`
+
+**`dailyScanJob.js`** — runs every 5 minutes via BullMQ repeat:
+1. Query users where `deliveryTime` matches current hour:minute (IST)
+2. Check `DailyMessage` table: skip if message already sent today
+3. Enqueue `sendDailyMessage` job for each qualifying user
+
+**`sendDailyMessageJob.js`** — processes one user:
+1. `dailyMessageService.generateDailyMessage(user)`
+2. `sendWhatsAppMessage(user.phone, fullText)`
+3. Write record to `DailyMessage` table (`sentAt = now()`)
+4. Log delivery
+
+**Acceptance Criteria**
+- [ ] Set a test user's `deliveryTime` to 2 minutes from now — message arrives on WhatsApp
+- [ ] Running the scan job twice in one minute doesn't send duplicate messages
+- [ ] Failed AI/Twilio calls retry up to 3 times; log error on final failure
+- [ ] `DailyMessage` record is created with correct `userId`, `date`, and `sentAt`
+
+---
+
+### TASK-019 · Streak Service
+
+**Files**
+- `server/src/services/streakService.js`
+- `server/src/jobs/streakCheckJob.js`
+- `server/tests/streakService.test.js`
+
+**`streakService.js` methods**
+```js
+recordInteraction(userId)     // updates lastInteraction, increments streak
+checkAndResetStreaks()         // scans all users: resets if 2+ days inactive
+getMilestoneMessage(streak)   // returns emoji message for 7/21/40/108 day milestones, else null
+```
+
+**`streakCheckJob.js`** — BullMQ repeatable job, runs daily at midnight IST:
+- Calls `checkAndResetStreaks()`
+
+**Milestone messages**
+| Streak | Message |
+|---|---|
+| 7 | "🔥 7-day streak! Saptha — 7 is sacred in Hindu tradition. Keep going!" |
+| 21 | "🌟 21 days! They say it takes 21 days to form a habit. You've built a spiritual one." |
+| 40 | "🙏 40 days! Like the 40-day Tapasya of sages, your devotion is deepening." |
+| 108 | "🕉️ 108 days! The most sacred number in Hinduism. You are truly a Sadhak! " |
+
+**Acceptance Criteria**
+- [ ] `recordInteraction` increments streak from 2 → 3
+- [ ] User inactive for 2 days gets streak reset to 0 by `checkAndResetStreaks`
+- [ ] User inactive for 1 day retains streak
+- [ ] `getMilestoneMessage(108)` returns the correct message; `getMilestoneMessage(5)` returns null
+- [ ] Unit tests cover all 4 scenarios
+
+---
+
+### TASK-020 · Streak Integration in Webhook
+
+**Files**
+- `server/src/services/messageRouterService.js` (update)
+- `server/src/controllers/webhookController.js` (minor update)
+
+**Steps**
+1. When a fully-onboarded user sends any message: call `streakService.recordInteraction(userId)`
+2. When a user replies to the daily message (within 24h): set `DailyMessage.replied = true`
+3. If `recordInteraction` returns a milestone: append milestone message to reply
+4. Include current streak in the daily message footer: `"Day {{streak}} 🔥"`
+
+**Acceptance Criteria**
+- [ ] After interacting 3 days in a row, `streakCount` in DB equals 3
+- [ ] After a 7-day streak, the next reply includes the milestone message
+- [ ] Streak count appears in each daily WhatsApp message footer
+
+---
+
+## Phase 5 — Web Dashboard (Days 27–34)
+
+### TASK-021 · Backend Auth API (OTP + JWT)
+
+**Files**
+- `server/src/routes/auth.js`
+- `server/src/controllers/authController.js`
+- `server/src/services/authService.js`
+- `server/src/middleware/authenticate.js`
+
+**Endpoints**
+```
+POST /api/auth/send-otp    { phone } → sends 6-digit OTP via Twilio SMS
+POST /api/auth/verify-otp  { phone, otp } → returns JWT on success
+```
+
+**`authenticate.js`** — JWT middleware, attaches `req.user` from token
+
+**Steps**
+1. `npm install jsonwebtoken`
+2. OTP: generate 6-digit code, store in `User.otpCode + otpExpiry` (or Redis), send via Twilio SMS
+3. Verify: check code + expiry, issue JWT (`{ userId, phone }`, 7-day expiry)
+
+**Acceptance Criteria**
+- [ ] `POST /api/auth/send-otp` with valid phone → 200 + SMS received
+- [ ] `POST /api/auth/verify-otp` with correct OTP → 200 + `{ token }`
+- [ ] Wrong OTP → 401 `{ error: "Invalid OTP" }`
+- [ ] Expired OTP (> 10 min) → 401 `{ error: "OTP expired" }`
+- [ ] Protected route with no token → 401; with valid token → 200
+
+---
+
+### TASK-022 · Backend Data API
+
+**Files**
+- `server/src/routes/api.js`
+- `server/src/controllers/userController.js`
+- `server/src/controllers/messageController.js`
+
+**Endpoints** (all require JWT)
+```
+GET  /api/user/profile       → User object (no phone in response)
+PUT  /api/user/profile       → Update rashi, language, deliveryTime
+GET  /api/user/streak        → { streakCount, lastInteraction, history: [...] }
+GET  /api/messages?page=1    → paginated DailyMessage list (10/page)
+GET  /api/messages/:id       → single DailyMessage
+```
+
+**Acceptance Criteria**
+- [ ] `GET /api/user/profile` returns correct user data for JWT owner
+- [ ] `PUT /api/user/profile` updates only the provided fields
+- [ ] `GET /api/messages` returns 10 items per page; `page=2` returns next 10
+- [ ] All endpoints return 401 without valid JWT
+
+---
+
+### TASK-023 · Next.js API Client & Auth
+
+**Files**
+- `dashboard/src/lib/api.js`
+- `dashboard/src/lib/auth.js`
+- `dashboard/src/app/login/page.jsx`
+
+**`api.js`** — Axios (or fetch) wrapper that automatically attaches Bearer token from localStorage
+
+**`auth.js`** — `login(phone, otp)`, `logout()`, `getToken()`, `isLoggedIn()`
+
+**Login page**:
+- Step 1: phone input → `POST /api/auth/send-otp`
+- Step 2: OTP input → `POST /api/auth/verify-otp` → store token → redirect to `/dashboard`
+
+**Acceptance Criteria**
+- [ ] Login page renders on `/login`
+- [ ] Entering phone + valid OTP stores JWT and redirects to `/dashboard`
+- [ ] Invalid OTP shows inline error "Invalid OTP, please try again"
+- [ ] Unauthenticated access to `/dashboard` redirects to `/login`
+
+---
+
+### TASK-024 · Landing Page
+
+**Files**
+- `dashboard/src/app/page.jsx`
+- `dashboard/src/app/globals.css`
+- `dashboard/src/components/HeroSection.jsx`
+
+**Design requirements**
+- Dark background (`#0D0A07`) with saffron (`#FF9933`) + gold (`#FFD700`) accents
+- Google Fonts: Yatra One (headings), Inter (body)
+- Hero: app name, tagline, "Start your Journey" CTA → `/login`
+- Feature section: 3 cards (Daily Rashi, Sacred Verses, Streak Challenges)
+- Fully responsive (mobile-first)
+- Subtle fade-in animation on scroll
+
+**Acceptance Criteria**
+- [ ] Page loads without hydration errors
+- [ ] "Start your Journey" button navigates to `/login`
+- [ ] Lighthouse performance score ≥ 80 on mobile
+- [ ] Renders correctly on 375px (iPhone SE) and 1440px viewports
+
+---
+
+### TASK-025 · Dashboard Page
+
+**Files**
+- `dashboard/src/app/dashboard/page.jsx`
+- `dashboard/src/components/StreakCard.jsx`
+- `dashboard/src/components/TodayMessageCard.jsx`
+
+**Content**
+- Streak card: fire animation, current streak count, "Day X 🔥"
+- Today's message card: glassmorphism card with horoscope, verse (Sanskrit + translation), challenge
+- Quick links: History, Settings
+
+**Acceptance Criteria**
+- [ ] Streak count matches API response
+- [ ] If no message sent today, card shows "Your daily message will arrive at [deliveryTime]"
+- [ ] Page requires auth (redirect to `/login` if no token)
+- [ ] Verse displays in Sanskrit + English (or Hindi if language = "hi")
+
+---
+
+### TASK-026 · History & Settings Pages
+
+**Files**
+- `dashboard/src/app/history/page.jsx`
+- `dashboard/src/app/settings/page.jsx`
+- `dashboard/src/components/MessageCard.jsx`
+
+**History page**: Paginated timeline of past daily messages, newest first. Each card shows date, rashi, verse snippet, challenge.
+
+**Settings page**: Form to update rashi (dropdown), language preference (radio), delivery time (time picker). Save via `PUT /api/user/profile`.
+
+**Acceptance Criteria**
+- [ ] History loads 10 messages per page with "Load more" button
+- [ ] Settings form pre-fills with current user values
+- [ ] Saving settings shows success toast; API reflects changes
+- [ ] Both pages redirect to `/login` if unauthenticated
+
+---
+
+## Phase 6 — Polish, Beta & Launch (Days 35–42)
+
+### TASK-027 · Rate Limiting & Security Hardening
+
+**Files**
+- `server/src/middleware/rateLimiter.js`
+- `server/src/app.js` (update)
+
+**Rules**
+- `/api/auth/send-otp`: max 3 requests per phone per 10 minutes
+- `/webhook/whatsapp`: no limit (Twilio is trusted source — use signature auth)
+- `/api/*`: max 60 requests per IP per minute
+
+**Steps**
+1. `npm install express-rate-limit`
+2. Create named limiters for OTP and general API
+3. Apply to routes in `app.js`
+
+**Acceptance Criteria**
+- [ ] 4th OTP request within 10 min → 429 `{ error: "Too many requests" }`
+- [ ] 61st API request per minute → 429
+- [ ] Webhook is not rate-limited (Twilio sends cluster of messages)
+
+---
+
+### TASK-028 · Error Monitoring & Logging
+
+**Files**
+- `server/src/utils/logger.js`
+- `server/src/middleware/errorHandler.js` (update)
+
+**Steps**
+1. `npm install winston`
+2. `logger.js` — structured JSON logger (info, warn, error levels); writes to console + optional file
+3. Replace all `console.log` calls with `logger.info/warn/error`
+4. Error handler: log full stack trace via logger; return sanitised message to client
+
+**Acceptance Criteria**
+- [ ] All info logs are JSON format with `timestamp`, `level`, `message`
+- [ ] Errors include stack trace in log but only a safe message in HTTP response
+- [ ] `logger.warn("test")` appears in Railway logs
+
+---
+
+### TASK-029 · End-to-End Test Checklist
+
+**Files**
+- `scripts/e2e-checklist.md`
+
+**Manual test scenarios (run before beta)**
+
+| # | Scenario | Expected |
+|---|---|---|
+| 1 | New number sends "Hi" | Onboarding step 0 starts |
+| 2 | Complete full onboarding | User in DB with `isOnboarded=true` |
+| 3 | Set deliveryTime to +2 min | Message arrives on WhatsApp |
+| 4 | Reply to daily message | Streak increments, reply saved |
+| 5 | Skip 2 days | Streak resets to 0 |
+| 6 | 7-day streak | Milestone message sent |
+| 7 | Send "What is karma?" | AI replies with Gita reference |
+| 8 | Web login with OTP | JWT stored, redirect to dashboard |
+| 9 | Dashboard shows streak | Matches DB value |
+| 10 | Change rashi in settings | Next daily message uses new rashi |
+
+**Acceptance Criteria**
+- [ ] All 10 scenarios pass before beta launch
+- [ ] Zero unhandled promise rejections in Railway logs during 30-minute stress test
+
+---
+
+### TASK-030 · Railway Deployment
+
+**Files**
+- `railway.toml`
+- `server/Dockerfile` (optional — Railway can auto-detect Node)
+- `dashboard/vercel.json`
+
+**Steps**
+1. Push monorepo to GitHub
+2. Create Railway project → add services: Node (server), PostgreSQL, Redis
+3. Set all env vars in Railway dashboard
+4. Connect Supabase `DATABASE_URL` to Railway service
+5. Deploy Next.js dashboard to Vercel (import GitHub repo, set `rootDir=dashboard`)
+6. Update `NEXT_PUBLIC_API_URL` in Vercel env vars to point to Railway backend URL
+7. Update Twilio webhook URL to Railway backend URL
+
+**Acceptance Criteria**
+- [ ] `GET https://dharma-daily-production.railway.app/health` returns `{ status: "ok", db: "connected" }`
+- [ ] Twilio sends a test message → webhook receives it → reply arrives
+- [ ] Dashboard at `https://dharmadaily.vercel.app/` loads and login works
+- [ ] Daily message arrives for a test user at the correct time
+
+---
+
+## Task Summary
+
+| Phase | Tasks | Days | Focus |
+|---|---|---|---|
+| 0 — Bootstrap | TASK-001 to 004 | 1–2 | Monorepo, env, Express shell, linting |
+| 1 — Database | TASK-005 to 008 | 3–6 | Prisma schema, 60+ verses, seed, service |
+| 2 — WhatsApp | TASK-009 to 012 | 7–12 | Webhook, user service, onboarding state machine |
+| 3 — AI Engine | TASK-013 to 016 | 13–20 | Gemini service, prompts, daily gen, chat |
+| 4 — Scheduler | TASK-017 to 020 | 21–26 | BullMQ, daily scan, streaks, milestones |
+| 5 — Dashboard | TASK-021 to 026 | 27–34 | Auth API, data API, Next.js pages |
+| 6 — Launch | TASK-027 to 030 | 35–42 | Rate limits, logging, E2E tests, deploy |
+
+**Total: 30 tasks · 42 days · Railway + Vercel**

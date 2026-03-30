@@ -1,0 +1,20 @@
+{
+  "name": "bhaktidaily",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "server",
+    "dashboard"
+  ],
+  "scripts": {
+    "dev:server": "npm run dev --workspace=server",
+    "dev:dashboard": "npm run dev --workspace=dashboard",
+    "lint": "npm run lint --workspaces",
+    "test": "npm test --workspace=server"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "eslint-config-prettier": "^9.1.0"
+  }
+}

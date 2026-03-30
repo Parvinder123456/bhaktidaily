@@ -1,0 +1,598 @@
+/* =============================================================
+   Daily Divine — Landing Page Styles
+   Color palette: saffron #FF6B00, gold #FFD700, cream #FFF8F0,
+                  deep maroon #8B0000, dark bg #0D0500
+   ============================================================= */
+
+/* ---------- Root variables (scoped to landing) ---------- */
+.ld-root {
+  --ld-saffron:    #FF6B00;
+  --ld-saffron-lt: #FF9233;
+  --ld-gold:       #FFD700;
+  --ld-maroon:     #8B0000;
+  --ld-maroon-dk:  #4a0000;
+  --ld-cream:      #FFF8F0;
+  --ld-dark:       #0D0500;
+  --ld-dark-2:     #160800;
+  --ld-text:       #F5ECD7;
+  --ld-text-muted: #C4A882;
+  --ld-wa-green:   #25D366;
+  --ld-wa-dark:    #128C7E;
+
+  background: var(--ld-dark);
+  color: var(--ld-text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ---------- Nav ---------- */
+.ld-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 5, 0, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+}
+
+.ld-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ld-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ld-text);
+}
+
+.ld-om {
+  font-size: 1.6rem;
+  color: var(--ld-gold);
+  display: inline-block;
+  animation: omPulse 3s ease-in-out infinite;
+}
+
+.ld-logo-text {
+  font-family: 'Yatra One', serif;
+}
+
+.ld-logo-accent {
+  color: var(--ld-saffron);
+}
+
+.ld-btn-outline {
+  padding: 0.5rem 1.375rem;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 107, 0, 0.6);
+  background: transparent;
+  color: var(--ld-saffron);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.ld-btn-outline:hover {
+  background: rgba(255, 107, 0, 0.12);
+  border-color: var(--ld-saffron);
+  color: var(--ld-gold);
+}
+
+/* ---------- Hero ---------- */
+.ld-hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(139,0,0,0.45) 0%, transparent 70%),
+              linear-gradient(160deg, #1a0500 0%, #0D0500 55%, #200000 100%);
+  padding: 5rem 1.5rem 4rem;
+}
+
+.ld-hero-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 700px at 50% 40%, rgba(255, 107, 0, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Floating diya emoji */
+.ld-diya {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.55;
+  pointer-events: none;
+  user-select: none;
+  animation: floatDiya 5s ease-in-out infinite;
+}
+
+.ld-diya-1 { top: 12%; left: 8%;  animation-delay: 0s;    font-size: 1.75rem; }
+.ld-diya-2 { top: 20%; right: 6%; animation-delay: 1.8s;  font-size: 2.2rem; }
+.ld-diya-3 { bottom: 22%; left: 5%; animation-delay: 3.2s; font-size: 1.5rem; }
+
+@keyframes floatDiya {
+  0%, 100% { transform: translateY(0px) rotate(-4deg); opacity: 0.55; }
+  50%       { transform: translateY(-14px) rotate(4deg); opacity: 0.8; }
+}
+
+.ld-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Big animated Om */
+.ld-om-big {
+  font-size: clamp(4rem, 12vw, 8rem);
+  color: var(--ld-gold);
+  line-height: 1;
+  animation: omSpin 12s linear infinite, omGlow 3s ease-in-out infinite;
+  display: inline-block;
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.5), 0 0 80px rgba(255, 215, 0, 0.25);
+}
+
+@keyframes omSpin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes omGlow {
+  0%, 100% { text-shadow: 0 0 30px rgba(255,215,0,0.4), 0 0 60px rgba(255,215,0,0.2); }
+  50%       { text-shadow: 0 0 60px rgba(255,215,0,0.7), 0 0 120px rgba(255,107,0,0.35); }
+}
+
+@keyframes omPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.12); }
+}
+
+.ld-hero-title {
+  font-family: 'Yatra One', serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1.05;
+  color: var(--ld-cream);
+  margin: 0;
+  text-shadow: 0 2px 24px rgba(255,107,0,0.3);
+}
+
+.ld-title-accent {
+  color: var(--ld-saffron);
+  background: linear-gradient(135deg, var(--ld-saffron), var(--ld-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ld-hero-tagline {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: var(--ld-cream);
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ld-tagline-sub {
+  color: var(--ld-text-muted);
+  font-size: 0.92em;
+}
+
+.ld-hero-desc {
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  color: var(--ld-text-muted);
+  max-width: 520px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.ld-hero-note {
+  font-size: 0.82rem;
+  color: var(--ld-text-muted);
+  margin: 0;
+}
+
+/* ---------- WhatsApp button ---------- */
+.ld-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  padding: 1rem 2.25rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  animation: waPulse 2.5s ease-in-out infinite;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  position: relative;
+}
+
+.ld-btn-wa:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(37, 211, 102, 0.45);
+  color: #fff;
+}
+
+.ld-btn-wa-large {
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  padding: 1.2rem 3rem;
+  border-radius: 16px;
+}
+
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  60%       { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+}
+
+/* ---------- Section shared ---------- */
+.ld-section {
+  padding: 5rem 1.5rem;
+}
+
+.ld-section-dark {
+  background: rgba(255, 107, 0, 0.03);
+  border-top:    1px solid rgba(255, 107, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 107, 0, 0.1);
+}
+
+.ld-section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ld-section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.ld-section-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ld-saffron);
+  margin-bottom: 0.75rem;
+  background: rgba(255,107,0,0.1);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,107,0,0.25);
+}
+
+.ld-section-title {
+  font-family: 'Yatra One', serif;
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  color: var(--ld-cream);
+  margin: 0.5rem 0;
+}
+
+.ld-section-subtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  color: var(--ld-text-muted);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ---------- Features grid ---------- */
+.ld-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.ld-feature-card {
+  background: rgba(255, 107, 0, 0.04);
+  border: 1px solid rgba(255, 107, 0, 0.15);
+  border-radius: 18px;
+  padding: 2rem 1.75rem;
+  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+
+.ld-feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 107, 0, 0.4);
+  background: rgba(255, 107, 0, 0.08);
+}
+
+.ld-feature-icon {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.ld-feature-title {
+  font-family: 'Yatra One', serif;
+  font-size: 1.15rem;
+  color: var(--ld-gold);
+  margin-bottom: 0.625rem;
+}
+
+.ld-feature-desc {
+  font-size: 0.9rem;
+  color: var(--ld-text-muted);
+  line-height: 1.65;
+}
+
+/* ---------- Lotus divider ---------- */
+.ld-lotus-divider {
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 1rem 0;
+  opacity: 0.7;
+}
+
+/* ---------- Steps ---------- */
+.ld-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  position: relative;
+}
+
+.ld-step {
+  position: relative;
+  flex: 1 1 240px;
+  max-width: 320px;
+  background: rgba(255,107,0,0.05);
+  border: 1px solid rgba(255,107,0,0.15);
+  border-radius: 18px;
+  padding: 2.25rem 1.75rem;
+  text-align: center;
+}
+
+.ld-step-num {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--ld-saffron);
+  background: rgba(255,107,0,0.12);
+  border: 1px solid rgba(255,107,0,0.3);
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.ld-step-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.875rem;
+}
+
+.ld-step-title {
+  font-family: 'Yatra One', serif;
+  font-size: 1.1rem;
+  color: var(--ld-cream);
+  margin-bottom: 0.625rem;
+}
+
+.ld-step-desc {
+  font-size: 0.88rem;
+  color: var(--ld-text-muted);
+  line-height: 1.65;
+}
+
+.ld-step-arrow {
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: rgba(255,107,0,0.4);
+  pointer-events: none;
+  /* Hide on mobile/wrapped layouts */
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .ld-steps {
+    flex-wrap: nowrap;
+  }
+  .ld-step-arrow {
+    display: block;
+  }
+}
+
+/* ---------- Testimonials ---------- */
+.ld-testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.ld-testimonial-card {
+  background: rgba(255,107,0,0.04);
+  border: 1px solid rgba(255,107,0,0.15);
+  border-radius: 18px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ld-testimonial-text {
+  font-size: 0.95rem;
+  color: var(--ld-text);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.ld-testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ld-author-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ld-gold);
+}
+
+.ld-author-rashi {
+  font-size: 0.78rem;
+  color: var(--ld-text-muted);
+}
+
+/* ---------- Stats ---------- */
+.ld-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: rgba(255,107,0,0.06);
+  border: 1px solid rgba(255,107,0,0.18);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.ld-stat {
+  flex: 1 1 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+}
+
+.ld-stat-num {
+  font-family: 'Yatra One', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  background: linear-gradient(135deg, var(--ld-saffron), var(--ld-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.375rem;
+}
+
+.ld-stat-label {
+  font-size: 0.82rem;
+  color: var(--ld-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.ld-stat-divider {
+  width: 1px;
+  height: 50px;
+  background: rgba(255,107,0,0.2);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+@media (max-width: 640px) {
+  .ld-stat-divider { display: none; }
+  .ld-stats { gap: 0; }
+}
+
+/* ---------- Final CTA section ---------- */
+.ld-cta-section {
+  position: relative;
+  padding: 6rem 1.5rem;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(139,0,0,0.5) 0%, transparent 75%),
+              linear-gradient(180deg, var(--ld-dark) 0%, #1a0600 50%, var(--ld-dark) 100%);
+}
+
+.ld-cta-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 500px at 50% 50%, rgba(255,107,0,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ld-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.ld-cta-om {
+  font-size: 4rem;
+  color: var(--ld-gold);
+  animation: omGlow 3s ease-in-out infinite;
+}
+
+.ld-cta-title {
+  font-family: 'Yatra One', serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  color: var(--ld-cream);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.ld-cta-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: var(--ld-text-muted);
+  max-width: 500px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.ld-cta-note {
+  font-size: 0.82rem;
+  color: var(--ld-text-muted);
+  margin: 0;
+}
+
+/* ---------- Footer ---------- */
+.ld-footer {
+  border-top: 1px solid rgba(255,107,0,0.12);
+  padding: 2.5rem 1.5rem;
+}
+
+.ld-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  text-align: center;
+}
+
+.ld-footer-logo {
+  font-family: 'Yatra One', serif;
+  font-size: 1.25rem;
+  color: var(--ld-text);
+}
+
+.ld-footer-tagline {
+  font-size: 0.875rem;
+  color: var(--ld-text-muted);
+}
+
+.ld-footer-copy {
+  font-size: 0.78rem;
+  color: rgba(196, 168, 130, 0.5);
+}

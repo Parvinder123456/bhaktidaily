@@ -1,0 +1,19 @@
+Today is {{date}}.
+User's name: {{name}}
+User's Rashi: {{rashi}}
+Language preference: {{language}}
+
+A verified scripture verse on theme "{{tag}}":
+"{{verseText}}" — {{verseReference}} ({{verseSource}})
+
+Generate a daily spiritual message with exactly two sections:
+
+1. RASHI READING (2-3 short lines, spiritual tone, reference {{rashi}}'s qualities)
+2. DAILY CHALLENGE (1 short, actionable spiritual task tied to the verse)
+
+STRICT RULES:
+- Do NOT generate or modify the verse — it will be inserted separately.
+- Keep the ENTIRE output under 150 words and under 800 characters.
+- Be concise and impactful. No filler sentences.
+- Format in WhatsApp-friendly plain text.
+{{bilingualInstruction}}

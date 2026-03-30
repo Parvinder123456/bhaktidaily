@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(npm install:*)",
+      "Bash(npx jest:*)",
+      "Bash(node -e \":*)",
+      "Bash(printf 'NEXT_PUBLIC_API_URL=http://localhost:3001\\\\n')",
+      "Bash(\"C:/Users/parvi/Daily Divine/dashboard/.env.example\")",
+      "Bash(node:*)",
+      "Bash(npm run:*)",
+      "Bash(grep -r \"triviaQuestion\\\\|TriviaQuestion\" 'C:\\\\Users\\\\parvi\\\\Daily Divine\\\\server\\\\src' --include=*.js -l)",
+      "Bash(npx prisma:*)",
+      "Bash(ls:*)",
+      "Bash(grep -r \"Daily Divine\\\\|DailyDivine\\\\|DharmaDaily\\\\|dharmadaily\" 'C:\\\\Users\\\\parvi\\\\Daily Divine' --include=*.js --include=*.jsx --include=*.tsx --include=*.json --include=*.txt --include=*.md -l)",
+      "Bash(grep -rl \"Daily Divine\\\\|DailyDivine\\\\|DharmaDaily\\\\|dharmadaily\" 'C:\\\\Users\\\\parvi\\\\Daily Divine' --include=*.js --include=*.jsx --include=*.tsx --include=*.json --include=*.txt --include=*.md)",
+      "Bash(npx next:*)",
+      "Bash(curl:*)",
+      "Bash(tasklist)",
+      "Bash(taskkill //F //IM node.exe)"
+    ]
+  }
+}
