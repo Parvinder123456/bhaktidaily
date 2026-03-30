@@ -23,6 +23,13 @@ async function login(req, res) {
     return res.status(400).json({ error: 'Password is required' });
   }
 
+  const ADMIN_WHITELIST = ['+917024307803'];
+  const normalised = phone.trim().replace(/\s+/g, '');
+  if (!ADMIN_WHITELIST.includes(normalised)) {
+    logger.warn({ message: 'authController: unauthorised login attempt', phone: normalised });
+    return res.status(403).json({ error: 'Access denied.' });
+  }
+
   const token = await authService.loginWithPassword(phone.trim(), password);
 
   logger.info({ message: 'authController: login successful', phone: phone.trim() });
