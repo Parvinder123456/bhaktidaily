@@ -16,13 +16,17 @@ router.get('/health', async (req, res) => {
   const health = { status: 'ok', timestamp: new Date().toISOString() };
 
   try {
-    await getDb().$queryRaw`SELECT 1`;
+    // 3-second timeout so a slow DB doesn't block the health check
+    await Promise.race([
+      getDb().$queryRaw`SELECT 1`,
+      new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 3000)),
+    ]);
     health.db = 'connected';
   } catch (_err) {
     health.db = 'disconnected';
   }
 
-  res.json(health);
+  res.status(200).json(health);
 });
 
 // ─── DEV ONLY: Immediately generate and send a daily message ───────────────────

@@ -2,20 +2,34 @@
 
 require('dotenv').config();
 
-const REQUIRED_VARS = [
-  'DATABASE_URL',
+// Variables required to start serving (server will crash without these)
+const CRITICAL_VARS = ['DATABASE_URL', 'JWT_SECRET'];
+
+// Variables required for full functionality (server will start but features will be degraded)
+const SERVICE_VARS = [
   'TWILIO_ACCOUNT_SID',
   'TWILIO_AUTH_TOKEN',
   'TWILIO_WHATSAPP_FROM',
   'GEMINI_API_KEY',
-  'JWT_SECRET',
 ];
 
+// Legacy alias — kept for backward compatibility
+const REQUIRED_VARS = [...CRITICAL_VARS, ...SERVICE_VARS];
+
 function validateEnv() {
-  const missing = REQUIRED_VARS.filter(key => !process.env[key]);
-  if (missing.length > 0) {
+  const missingCritical = CRITICAL_VARS.filter(key => !process.env[key]);
+  const missingService = SERVICE_VARS.filter(key => !process.env[key]);
+
+  if (missingService.length > 0) {
+    console.warn(
+      `[env] WARNING: Missing service environment variables: ${missingService.join(', ')}. ` +
+        'Some features (WhatsApp messaging, AI generation) will be unavailable.'
+    );
+  }
+
+  if (missingCritical.length > 0) {
     throw new Error(
-      `Missing required environment variables: ${missing.join(', ')}\n` +
+      `Missing critical environment variables: ${missingCritical.join(', ')}\n` +
         'Please copy server/.env.example to server/.env and fill in all values.'
     );
   }
