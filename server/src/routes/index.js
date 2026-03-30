@@ -23,9 +23,11 @@ router.get('/health', async (req, res) => {
     ]);
     health.db = 'connected';
   } catch (_err) {
+    health.status = 'degraded';
     health.db = 'disconnected';
   }
 
+  // Always return 200 so Railway health checks don't kill the container
   res.status(200).json(health);
 });
 

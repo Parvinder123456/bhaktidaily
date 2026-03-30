@@ -25,13 +25,20 @@ async function processDailyScan(job) {
 
   // Find all fully-onboarded users whose delivery window matches now
   // We match on the HH:MM string stored in deliveryTime
-  const usersToMessage = await db.user.findMany({
-    where: {
-      isOnboarded: true,
-      deliveryTime: nowIST,
-    },
-    select: { id: true, phone: true, deliveryTime: true, name: true },
-  });
+  let usersToMessage;
+  try {
+    usersToMessage = await db.user.findMany({
+      where: {
+        isOnboarded: true,
+        deliveryTime: nowIST,
+      },
+      select: { id: true, phone: true, deliveryTime: true, name: true },
+    });
+  } catch (err) {
+    const msg = 'dailyScanJob: database query failed — is DATABASE_URL configured correctly?';
+    logger.error({ message: msg, error: err.message });
+    throw new Error(`${msg} (${err.message})`);
+  }
 
   if (usersToMessage.length === 0) {
     logger.info({ message: 'dailyScanJob: no users to message at this time', nowIST });
