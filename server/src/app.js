@@ -48,7 +48,18 @@ if (process.env.DASHBOARD_URL && !ALLOWED_ORIGINS.includes(process.env.DASHBOARD
 
 app.use(
   cors({
-    origin: process.env.NODE_ENV === 'production' ? ALLOWED_ORIGINS : '*',
+    origin: (origin, callback) => {
+      // Allow requests with no origin (mobile apps, curl, etc.)
+      if (!origin) return callback(null, true);
+      if (
+        process.env.NODE_ENV !== 'production' ||
+        ALLOWED_ORIGINS.includes(origin) ||
+        origin.endsWith('.vercel.app')
+      ) {
+        return callback(null, true);
+      }
+      return callback(new Error('Not allowed by CORS'));
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
