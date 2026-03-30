@@ -1,0 +1,9 @@
+server/
+scripts/
+data/
+node_modules/
+*.md
+*.docx
+Procfile
+railway.toml
+test_chat.js
