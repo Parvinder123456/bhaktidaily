@@ -2,6 +2,12 @@
 const path = require('path');
 
 const nextConfig = {
+  // Constrain file tracing to the dashboard directory only.
+  // This is the primary fix: prevents Next.js from walking up into
+  // the parent monorepo and discovering server/src/config/db.js
+  // which imports @prisma/client (never generated during dashboard build).
+  outputFileTracingRoot: __dirname,
+
   reactStrictMode: true,
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001',
