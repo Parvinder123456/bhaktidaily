@@ -1,7 +1,7 @@
 'use strict';
 
 const dailyMessageService = require('../services/dailyMessageService');
-const { sendWhatsAppMessage } = require('../services/messageRouterService');
+const { sendWhatsAppMessage, sendTemplateMessage } = require('../services/messageRouterService');
 const db = require('../config/db');
 const logger = require('../utils/logger');
 
@@ -13,9 +13,10 @@ const logger = require('../utils/logger');
  * Steps:
  *  1. Load the user from DB
  *  2. Check whether a message was already sent today (idempotency guard)
- *  3. Generate message via dailyMessageService
- *  4. Send via Twilio WhatsApp
- *  5. Persist a DailyMessage record with sentAt
+ *  3. Check 24h session window — send nudge template if outside, return early
+ *  4. Generate message via dailyMessageService (only if within window)
+ *  5. Send via Meta WhatsApp Cloud API
+ *  6. Persist a DailyMessage record with sentAt
  */
 async function processSendDailyMessage(job) {
   const { userId } = job.data;
@@ -48,10 +49,35 @@ async function processSendDailyMessage(job) {
     return { skipped: true };
   }
 
-  // 3. Generate content
+  // 3. Check 24-hour session window BEFORE generating AI content
+  const now = new Date();
+  const lastInteraction = user.lastInteraction ? new Date(user.lastInteraction) : null;
+  const hoursAgo = lastInteraction ? (now - lastInteraction) / (1000 * 60 * 60) : Infinity;
+  const withinSessionWindow = hoursAgo < 23; // 23h buffer for safety
+
+  if (!withinSessionWindow) {
+    // Outside 24h window — send nudge template instead of full message
+    const firstName = user.name ? user.name.split(' ')[0] : 'Bhakt';
+
+    await sendTemplateMessage(user.phone, 'daily_blessing_nudge', 'en', [
+      { type: 'body', parameters: [{ type: 'text', text: firstName }] },
+    ]);
+
+    // Create placeholder record so nudge-unlock handler knows a record exists for today
+    if (!existingMessage) {
+      await db.dailyMessage.create({
+        data: { userId, date: todayIST, horoscope: '', verseText: '', challenge: '' },
+      });
+    }
+
+    logger.info({ message: 'Nudge template sent — outside 24h window', userId, phone: user.phone, hoursAgo: hoursAgo.toFixed(1) });
+    return { nudgeSent: true };
+  }
+
+  // 4. Generate content (only reached if within session window)
   const { horoscope, verse, challenge, fullText } = await dailyMessageService.generateDailyMessage(user);
 
-  // 3b. Look up daily_image from MediaConfig (if configured)
+  // 4b. Look up daily_image from MediaConfig (if configured)
   let mediaUrl = null;
   try {
     const imgConfig = await db.mediaConfig.findUnique({ where: { key: 'daily_image' } });
@@ -60,10 +86,10 @@ async function processSendDailyMessage(job) {
     logger.warn({ message: 'Could not fetch daily_image MediaConfig', error: err.message });
   }
 
-  // 4. Send via WhatsApp (with optional image)
+  // 5. Send via WhatsApp (with optional image)
   await sendWhatsAppMessage(user.phone, fullText, mediaUrl);
 
-  // 5. Persist DailyMessage record
+  // 6. Persist DailyMessage record
   const record = await db.dailyMessage.upsert({
     where: {
       // Use existing record if created without sentAt (partial run recovery)

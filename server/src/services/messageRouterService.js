@@ -88,6 +88,32 @@ async function sendWhatsAppMessage(to, body, mediaUrl) {
 }
 
 /**
+ * Sends a pre-approved WhatsApp template message via Meta Cloud API.
+ * @param {string} to             - Phone number (E.164 format, e.g. +917XXXXXXXXX)
+ * @param {string} templateName   - Approved template name (e.g. 'daily_blessing_nudge')
+ * @param {string} languageCode   - Template language code (e.g. 'en')
+ * @param {Array}  [components]   - Template components (body parameters, etc.)
+ */
+async function sendTemplateMessage(to, templateName, languageCode, components) {
+  const phone = to.replace(/^\+/, '');
+  const payload = {
+    messaging_product: 'whatsapp',
+    recipient_type: 'individual',
+    to: phone,
+    type: 'template',
+    template: {
+      name: templateName,
+      language: { code: languageCode },
+      components: components || [],
+    },
+  };
+  const response = await callWhatsAppAPI(payload);
+  const messageId = response?.messages?.[0]?.id;
+  logger.info({ message: 'Template message sent', to: phone, template: templateName, messageId });
+  return { id: messageId };
+}
+
+/**
  * Routes an incoming WhatsApp message to the appropriate handler.
  *
  * Flow:
@@ -269,4 +295,4 @@ async function clearPendingInteraction(userId) {
   }
 }
 
-module.exports = { routeMessage, sendWhatsAppMessage };
+module.exports = { routeMessage, sendWhatsAppMessage, sendTemplateMessage };
