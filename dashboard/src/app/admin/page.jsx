@@ -11,6 +11,7 @@ import CalendarWidget from '@/components/CalendarWidget';
 import EngagementHeatmap from '@/components/EngagementHeatmap';
 import ABTestingCard from '@/components/ABTestingCard';
 import WeeklyThemeCard from '@/components/WeeklyThemeCard';
+import TestMessageCard from '@/components/TestMessageCard';
 
 /**
  * Admin Intelligence Dashboard — /admin
@@ -106,6 +107,16 @@ export default function AdminPage() {
           </div>
           <div style={{ flex: '2 1 340px', minWidth: '300px' }}>
             <CalendarWidget />
+          </div>
+        </div>
+
+        {/* ── Row 4: Test Message ── */}
+        <section style={styles.sectionLabel}>
+          <span style={styles.rowLabel}>Testing</span>
+        </section>
+        <div className="fade-in fade-in-delay-3" style={styles.row}>
+          <div style={{ flex: '1 1 400px', minWidth: '320px', maxWidth: '600px' }}>
+            <TestMessageCard />
           </div>
         </div>
       </main>

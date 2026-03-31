@@ -123,6 +123,15 @@ export const api = {
   // Returns: { report: InsightReport | null, message?: string }
   getLatestInsight: () => apiFetch('/api/admin/insights/latest'),
 
+  // Admin: send an on-demand test daily message
+  // Body: { phone, rashi, language }
+  // Returns: { sent: true, preview: string }
+  sendTestMessage: (data) =>
+    apiFetch('/api/admin/test-message', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+
   // ---------------------------------------------------------------------------
   // Media file upload (multipart/form-data)
   // ---------------------------------------------------------------------------

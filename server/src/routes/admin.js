@@ -26,6 +26,8 @@ const { getEngagementDistribution } = require('../services/engagementService');
 const { getVariantPerformance } = require('../services/variantService');
 const { getArcBeat, TWELVE_WEEK_CYCLE } = require('../jobs/weeklyThemeJob');
 const { handleUpload } = require('../controllers/uploadController');
+const dailyMessageService = require('../services/dailyMessageService');
+const { sendWhatsAppMessage } = require('../services/messageRouterService');
 const db = require('../config/db');
 const logger = require('../utils/logger');
 
@@ -296,6 +298,75 @@ router.patch('/content/pool/:id/verify', async (req, res) => {
   } catch (err) {
     logger.error({ message: 'PATCH /admin/content/pool/:id/verify failed', error: err.message });
     res.status(500).json({ error: 'Failed to verify content pool item' });
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Test Message — send an on-demand daily message to any phone with any prefs
+// ---------------------------------------------------------------------------
+
+/**
+ * POST /api/admin/test-message
+ * Body: { phone: string, rashi?: string, language?: string }
+ *
+ * Generates a daily message using the given preferences and sends it via
+ * WhatsApp immediately. The user does NOT need to exist in the database —
+ * a synthetic user object is built from the supplied preferences.
+ *
+ * Returns: { sent: true, preview: string }
+ */
+router.post('/test-message', async (req, res) => {
+  try {
+    const { phone, rashi = 'Mesh', language = 'en' } = req.body;
+
+    if (!phone || typeof phone !== 'string') {
+      return res.status(400).json({ error: 'phone is required' });
+    }
+
+    // Normalise phone: ensure it starts with '+'
+    const normalisedPhone = phone.startsWith('+') ? phone : `+${phone}`;
+
+    // Build a synthetic user so we can call generateDailyMessage without a real DB row.
+    // We look up the real user first (to get their id for history-aware verse selection),
+    // and fall back to a mock object if they don't exist yet.
+    const realUser = await db.user.findFirst({ where: { phone: normalisedPhone } });
+
+    const userForGeneration = realUser || {
+      id: `test-${Date.now()}`,
+      phone: normalisedPhone,
+      name: 'Test User',
+      rashi,
+      language,
+      deliveryTime: '07:00',
+      timezone: 'Asia/Kolkata',
+      isOnboarded: true,
+      isPremium: false,
+      streakCount: 0,
+      engagementProfile: null,
+      contentCycleWeek: 0,
+      lastThemeTag: null,
+    };
+
+    // Override prefs with what admin requested
+    userForGeneration.rashi = rashi;
+    userForGeneration.language = language;
+
+    const { fullText } = await dailyMessageService.generateDailyMessage(userForGeneration);
+
+    // Fetch optional daily_image
+    let mediaUrl = null;
+    try {
+      const imgConfig = await db.mediaConfig.findUnique({ where: { key: 'daily_image' } });
+      if (imgConfig?.url) mediaUrl = imgConfig.url;
+    } catch (_) { /* non-fatal */ }
+
+    await sendWhatsAppMessage(normalisedPhone, fullText, mediaUrl);
+
+    logger.info({ message: 'Admin test message sent', phone: normalisedPhone, rashi, language });
+    res.json({ sent: true, preview: fullText });
+  } catch (err) {
+    logger.error({ message: 'POST /admin/test-message failed', error: err.message });
+    res.status(500).json({ error: err.message || 'Failed to send test message' });
   }
 });
 
