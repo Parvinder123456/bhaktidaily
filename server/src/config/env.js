@@ -6,10 +6,12 @@ require('dotenv').config();
 const CRITICAL_VARS = ['DATABASE_URL', 'JWT_SECRET'];
 
 // Variables required for full functionality (server will start but features will be degraded)
+// NOTE: Twilio has been replaced by Meta WhatsApp Cloud API.
+// The 'twilio' npm package can be removed from package.json once migration is confirmed.
 const SERVICE_VARS = [
-  'TWILIO_ACCOUNT_SID',
-  'TWILIO_AUTH_TOKEN',
-  'TWILIO_WHATSAPP_FROM',
+  'WHATSAPP_ACCESS_TOKEN',
+  'WHATSAPP_PHONE_NUMBER_ID',
+  'WHATSAPP_VERIFY_TOKEN',
   'GEMINI_API_KEY',
 ];
 
@@ -45,9 +47,11 @@ module.exports = {
   PORT: parseInt(process.env.PORT, 10) || 3001,
   DATABASE_URL: process.env.DATABASE_URL,
   REDIS_URL: process.env.REDIS_URL || 'redis://localhost:6379',
-  TWILIO_ACCOUNT_SID: process.env.TWILIO_ACCOUNT_SID,
-  TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN,
-  TWILIO_WHATSAPP_FROM: process.env.TWILIO_WHATSAPP_FROM,
+  WHATSAPP_ACCESS_TOKEN: process.env.WHATSAPP_ACCESS_TOKEN,
+  WHATSAPP_PHONE_NUMBER_ID: process.env.WHATSAPP_PHONE_NUMBER_ID,
+  WHATSAPP_VERIFY_TOKEN: process.env.WHATSAPP_VERIFY_TOKEN,
+  META_APP_SECRET: process.env.META_APP_SECRET,
+  WHATSAPP_API_VERSION: process.env.WHATSAPP_API_VERSION || 'v21.0',
   GEMINI_API_KEY: process.env.GEMINI_API_KEY,
   // Optional: set to your Gemini tier's RPM limit. Default 10 = free tier.
   // Paid tier (gemini-2.5-flash): set to 1000 or higher.

@@ -1,6 +1,6 @@
 'use strict';
 
-const twilio = require('twilio');
+const axios = require('axios');
 const userService = require('./userService');
 const onboardingService = require('./onboardingService');
 const streakService = require('./streakService');
@@ -9,42 +9,82 @@ const db = require('../config/db');
 const logger = require('../utils/logger');
 
 /**
- * Sends a WhatsApp message via Twilio.
+ * Returns the Meta WhatsApp Cloud API endpoint URL.
+ */
+function getWhatsAppBaseUrl() {
+  const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
+  const apiVersion = process.env.WHATSAPP_API_VERSION || 'v21.0';
+  if (!phoneNumberId) throw new Error('WHATSAPP_PHONE_NUMBER_ID environment variable is not set');
+  return `https://graph.facebook.com/${apiVersion}/${phoneNumberId}/messages`;
+}
+
+/**
+ * Returns authorization headers for the Meta WhatsApp Cloud API.
+ */
+function getWhatsAppHeaders() {
+  const token = process.env.WHATSAPP_ACCESS_TOKEN;
+  if (!token) throw new Error('WHATSAPP_ACCESS_TOKEN environment variable is not set');
+  return {
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json',
+  };
+}
+
+/**
+ * Low-level helper: sends a payload to the Meta WhatsApp Cloud API.
+ */
+async function callWhatsAppAPI(payload) {
+  try {
+    const response = await axios.post(getWhatsAppBaseUrl(), payload, {
+      headers: getWhatsAppHeaders(),
+      timeout: 15000,
+    });
+    return response.data;
+  } catch (err) {
+    const metaError = err.response?.data?.error;
+    if (metaError) {
+      throw new Error(`WhatsApp API Error [${metaError.code}]: ${metaError.message}`);
+    }
+    throw new Error(`WhatsApp API request failed: ${err.message}`);
+  }
+}
+
+/**
+ * Sends a WhatsApp message via Meta Cloud API.
  * @param {string} to       - Phone number (E.164 format, e.g. +917XXXXXXXXX)
  * @param {string} body     - Message text
- * @param {string} [mediaUrl] - Optional public URL of media to attach (audio / image)
+ * @param {string} [mediaUrl] - Optional public URL of media to attach (image)
  */
 async function sendWhatsAppMessage(to, body, mediaUrl) {
-  const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-  const from = process.env.TWILIO_WHATSAPP_FROM;
+  // Meta expects phone without '+' prefix (e.g. "917XXXXXXXXX")
+  const phone = to.replace(/^\+/, '');
 
-  const params = {
-    from: from.startsWith('whatsapp:') ? from : `whatsapp:${from}`,
-    to: to.startsWith('whatsapp:') ? to : `whatsapp:${to}`,
-    body,
-  };
+  // Send text message
+  const textResponse = await callWhatsAppAPI({
+    messaging_product: 'whatsapp',
+    recipient_type: 'individual',
+    to: phone,
+    type: 'text',
+    text: { body, preview_url: false },
+  });
 
-  // Twilio WhatsApp limits body to 1600 chars when media is attached.
-  // If text fits, combine them. Otherwise send text first, image after.
-  if (mediaUrl && body.length <= 1600) {
-    params.mediaUrl = [mediaUrl];
-  }
+  const messageId = textResponse.messages?.[0]?.id || 'n/a';
+  logger.info({ message: 'WhatsApp text sent', to: phone, messageId, hasMedia: !!mediaUrl });
 
-  const message = await client.messages.create(params);
-  logger.info({ message: 'WhatsApp message sent', to, sid: message.sid, hasMedia: !!mediaUrl });
-
-  // Send image separately if body was too long for combined send
-  if (mediaUrl && body.length > 1600) {
-    const imgMsg = await client.messages.create({
-      from: params.from,
-      to: params.to,
-      body: '🖼️',
-      mediaUrl: [mediaUrl],
+  // Send image separately if mediaUrl is provided
+  if (mediaUrl) {
+    const imgResponse = await callWhatsAppAPI({
+      messaging_product: 'whatsapp',
+      recipient_type: 'individual',
+      to: phone,
+      type: 'image',
+      image: { link: mediaUrl },
     });
-    logger.info({ message: 'WhatsApp media sent separately (body too long)', to, sid: imgMsg.sid });
+    const imgId = imgResponse.messages?.[0]?.id || 'n/a';
+    logger.info({ message: 'WhatsApp image sent', to: phone, messageId: imgId });
   }
 
-  return message;
+  return { id: messageId };
 }
 
 /**
