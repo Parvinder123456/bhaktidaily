@@ -6,6 +6,13 @@
  * Route structure:
  *   GET  /health                  — health check (no auth, no rate limit)
  *   POST /webhook/whatsapp        — Twilio webhook (signature auth, no rate limit)
+ *   POST /tools/name-meaning      — public viral tool (toolsLimiter, no auth)
+ *   GET  /tools/panchang/today    — public viral tool (toolsLimiter, no auth)
+ *   POST /tools/panchang/muhurat  — public viral tool (toolsLimiter, no auth)
+ *   POST /tools/raashifal         — public viral tool (toolsLimiter, no auth)
+ *   POST /tools/dream-interpret   — public viral tool (toolsLimiter, no auth)
+ *   POST /tools/dharma-naam       — public viral tool (toolsLimiter, no auth)
+ *   POST /tools/leads             — lead capture (toolsLimiter, no auth)
  *   POST /api/auth/login           — phone + password login
  *   GET  /api/user/profile        — JWT required + 60 req/IP/min
  *   PUT  /api/user/profile        — JWT required + 60 req/IP/min
@@ -21,6 +28,7 @@ require('express-async-errors');
 
 const indexRouter = require('./routes/index');
 const webhookRouter = require('./routes/webhook');
+const toolsRouter = require('./routes/tools');
 const authRouter = require('./routes/auth');
 const apiRouter = require('./routes/api');
 const adminRouter = require('./routes/admin');
@@ -81,6 +89,9 @@ app.use('/', indexRouter);
 
 // WhatsApp webhook — no rate limit (Twilio signature is the auth mechanism)
 app.use('/webhook', webhookRouter);
+
+// Public viral tools — no auth, custom rate limit (toolsLimiter applied inside router)
+app.use('/tools', toolsRouter);
 
 // Auth routes — password-based login, no JWT required.
 // Mounted BEFORE the protected /api/* block so they are accessible without a JWT.

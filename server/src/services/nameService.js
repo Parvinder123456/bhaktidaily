@@ -55,4 +55,18 @@ function parseNameOutput(text, name) {
   };
 }
 
-module.exports = { getNameMeaning };
+/**
+ * Returns the structured parsed object for a name's spiritual meaning.
+ * Used by toolsController for the public-facing API.
+ *
+ * @param {string} name - The name to look up
+ * @returns {Promise<{ sanskritRoot: string, deityAssociation: string, meaning: string, blessing: string }>}
+ */
+async function getNameMeaningStructured(name) {
+  const prompt = promptService.buildPromptFromTemplate('name_meaning.txt', { name });
+  const systemInstruction = promptService.getSystemInstruction();
+  const aiOutput = await aiService.generateText(prompt, systemInstruction);
+  return parseNameOutput(aiOutput, name);
+}
+
+module.exports = { getNameMeaning, getNameMeaningStructured };

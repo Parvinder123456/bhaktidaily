@@ -296,3 +296,17 @@ model JobRunLog {
   @@index([jobName, startedAt])
   @@index([status, startedAt])
 }
+
+// Viral lead-gen tools — Phase 0
+
+model ToolLead {
+  id        String   @id @default(uuid())
+  phone     String
+  toolName  String   // "name_meaning" | "panchang" | "raashifal" | "dream" | "dharma_naam"
+  metadata  Json?    // e.g. { name: "Arjun", rashi: "Mesh" }
+  createdAt DateTime @default(now())
+  converted Boolean  @default(false)
+
+  @@index([phone])
+  @@index([toolName, createdAt])
+}

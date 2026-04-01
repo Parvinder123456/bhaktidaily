@@ -57,4 +57,22 @@ function parseDreamOutput(text) {
   };
 }
 
-module.exports = { interpretDream };
+/**
+ * Returns the structured parsed object for a dream interpretation.
+ * Used by toolsController for the public-facing API.
+ *
+ * @param {string} dreamDescription - The user's dream description
+ * @param {string} userName - The user's name
+ * @returns {Promise<{ interpretation: string, reference: string, suggestion: string }>}
+ */
+async function interpretDreamStructured(dreamDescription, userName) {
+  const prompt = promptService.buildPromptFromTemplate('dream_interpret.txt', {
+    userName: userName || 'Bhakt',
+    dreamDescription,
+  });
+  const systemInstruction = promptService.getSystemInstruction();
+  const aiOutput = await aiService.generateText(prompt, systemInstruction);
+  return parseDreamOutput(aiOutput);
+}
+
+module.exports = { interpretDream, interpretDreamStructured };

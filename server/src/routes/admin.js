@@ -370,4 +370,86 @@ router.post('/test-message', async (req, res) => {
   }
 });
 
+// ---------------------------------------------------------------------------
+// Tool Leads — Analytics & Management
+// ---------------------------------------------------------------------------
+
+/**
+ * GET /api/admin/tools/leads
+ * Query: { toolName?, converted?, page?, limit?, from?, to? }
+ */
+router.get('/tools/leads', async (req, res) => {
+  try {
+    const { toolName, converted, page = 1, limit = 25, from, to } = req.query;
+    const where = {};
+    if (toolName) where.toolName = toolName;
+    if (converted !== undefined) where.converted = converted === 'true';
+    if (from || to) {
+      where.createdAt = {};
+      if (from) where.createdAt.gte = new Date(from);
+      if (to) where.createdAt.lte = new Date(to);
+    }
+
+    const [leads, total] = await Promise.all([
+      db.toolLead.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+        take: parseInt(limit),
+        skip: (parseInt(page) - 1) * parseInt(limit),
+      }),
+      db.toolLead.count({ where }),
+    ]);
+
+    res.json({ leads, total, page: parseInt(page), limit: parseInt(limit) });
+  } catch (err) {
+    logger.error({ message: 'GET /tools/leads error', error: err.message });
+    res.status(500).json({ error: 'Could not fetch leads' });
+  }
+});
+
+/**
+ * GET /api/admin/tools/stats
+ * Returns aggregated stats: total leads, per-tool breakdown, conversion rates.
+ */
+router.get('/tools/stats', async (req, res) => {
+  try {
+    const [total, converted, byTool] = await Promise.all([
+      db.toolLead.count(),
+      db.toolLead.count({ where: { converted: true } }),
+      db.toolLead.groupBy({
+        by: ['toolName'],
+        _count: true,
+      }),
+    ]);
+
+    const toolStats = await Promise.all(
+      byTool.map(async (t) => {
+        const toolConverted = await db.toolLead.count({
+          where: { toolName: t.toolName, converted: true },
+        });
+        return {
+          toolName: t.toolName,
+          totalLeads: t._count,
+          converted: toolConverted,
+          conversionRate: t._count > 0
+            ? ((toolConverted / t._count) * 100).toFixed(1) + '%'
+            : '0%',
+        };
+      })
+    );
+
+    res.json({
+      totalLeads: total,
+      totalConverted: converted,
+      overallConversionRate: total > 0
+        ? ((converted / total) * 100).toFixed(1) + '%'
+        : '0%',
+      byTool: toolStats,
+    });
+  } catch (err) {
+    logger.error({ message: 'GET /tools/stats error', error: err.message });
+    res.status(500).json({ error: 'Could not fetch tool stats' });
+  }
+});
+
 module.exports = router;

@@ -37,4 +37,26 @@ const apiLimiter = rateLimit({
   skip: (req) => req.method === 'OPTIONS',
 });
 
-module.exports = { apiLimiter };
+// ---------------------------------------------------------------------------
+// Public tools rate limiter — 10 requests per IP per 5 minutes
+// ---------------------------------------------------------------------------
+const toolsLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000, // 5 minutes
+  max: 10,
+  keyGenerator: (req) => req.ip,
+  handler: (req, res) => {
+    logger.warn({
+      message: 'Tools rate limit exceeded',
+      ip: req.ip,
+      path: req.path,
+    });
+    return res.status(429).json({
+      error: 'Bahut zyada requests. Kripya kuch der baad phir koshish karein.',
+    });
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+  skip: (req) => req.method === 'OPTIONS',
+});
+
+module.exports = { apiLimiter, toolsLimiter };

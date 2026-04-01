@@ -12,6 +12,8 @@ import EngagementHeatmap from '@/components/EngagementHeatmap';
 import ABTestingCard from '@/components/ABTestingCard';
 import WeeklyThemeCard from '@/components/WeeklyThemeCard';
 import TestMessageCard from '@/components/TestMessageCard';
+import ToolTesterCard from '@/components/ToolTesterCard';
+import ToolLeadsDashboard from '@/components/ToolLeadsDashboard';
 
 /**
  * Admin Intelligence Dashboard — /admin
@@ -110,13 +112,26 @@ export default function AdminPage() {
           </div>
         </div>
 
-        {/* ── Row 4: Test Message ── */}
+        {/* ── Row 4: Test Message + Tool Tester ── */}
         <section style={styles.sectionLabel}>
           <span style={styles.rowLabel}>Testing</span>
         </section>
         <div className="fade-in fade-in-delay-3" style={styles.row}>
-          <div style={{ flex: '1 1 400px', minWidth: '320px', maxWidth: '600px' }}>
+          <div style={{ flex: '1 1 340px', minWidth: '300px', maxWidth: '560px' }}>
             <TestMessageCard />
+          </div>
+          <div style={{ flex: '1 1 340px', minWidth: '300px', maxWidth: '560px' }}>
+            <ToolTesterCard />
+          </div>
+        </div>
+
+        {/* ── Row 5: Tool Leads Dashboard ── */}
+        <section style={styles.sectionLabel}>
+          <span style={styles.rowLabel}>Viral Tools — Lead Analytics</span>
+        </section>
+        <div className="fade-in fade-in-delay-3" style={styles.row}>
+          <div style={{ flex: '1 1 100%', minWidth: '0' }}>
+            <ToolLeadsDashboard />
           </div>
         </div>
       </main>
