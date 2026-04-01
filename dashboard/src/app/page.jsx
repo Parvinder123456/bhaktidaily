@@ -9,6 +9,14 @@ export const metadata = {
 // ---------------------------------------------------------------------------
 // Static data
 // ---------------------------------------------------------------------------
+const TOOLS = [
+  { href: '/naam-ka-arth', icon: '📜', label: 'Naam Ka Rahasya' },
+  { href: '/aaj-ka-panchang', icon: '📅', label: 'Aaj Ka Panchang' },
+  { href: '/aaj-ka-raashifal', icon: '♈', label: 'Aaj Ka Raashifal' },
+  { href: '/swapna-phal', icon: '🌙', label: 'Swapna Phal' },
+  { href: '/dharma-naam', icon: '🕉️', label: 'Dharma Naam' },
+];
+
 const FEATURES = [
   {
     icon: '📅',
@@ -96,6 +104,15 @@ export default function LandingPage() {
               Bhakti<span className="ld-logo-accent">Daily</span>
             </span>
           </span>
+
+          <div className="ld-nav-tools">
+            {TOOLS.map((t) => (
+              <a key={t.href} href={t.href} className="ld-nav-tool-link">
+                <span>{t.icon}</span> {t.label}
+              </a>
+            ))}
+          </div>
+
           <a href="/login" className="ld-btn-outline">Sign in</a>
         </div>
       </nav>

@@ -55,6 +55,39 @@
   color: var(--ld-text);
 }
 
+/* ---------- Nav tools row ---------- */
+.ld-nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: nowrap;
+}
+
+.ld-nav-tool-link {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ld-text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+
+.ld-nav-tool-link:hover {
+  color: var(--ld-gold);
+  background: rgba(255, 215, 0, 0.08);
+}
+
+@media (max-width: 900px) {
+  .ld-nav-tools {
+    display: none;
+  }
+}
+
 .ld-om {
   font-size: 1.6rem;
   color: var(--ld-gold);
